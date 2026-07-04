@@ -20,11 +20,11 @@ function paymentsFor(deposits: string[]) {
 // Logo file per operator. Real brand logo where a clean, transparent asset was
 // sourced; on-brand wordmark fallback (public/logos/<slug>.svg) otherwise.
 const LOGO: Record<string, string> = {
-  banditcamp: "banditcamp.svg", // fallback — source blocked
-  rustclash: "rustclash.svg",   // fallback — sourced asset was white-bg/opaque
+  banditcamp: "banditcamp.png", // real logo (transparent)
+  rustclash: "rustclash.png",   // real logo (transparent)
   rustmagic: "rustmagic.png",   // real logo (transparent)
-  rustyloot: "rustyloot.svg",   // fallback — source blocked
-  rustypot: "rustypot.svg",     // fallback — source blocked
+  rustyloot: "rustyloot.svg",   // fallback — awaiting a usable (non-AVIF) asset
+  rustypot: "rustypot.svg",     // fallback — not yet provided
 };
 
 export function OperatorCard({ review: r, rank }: { review: Review; rank: number }) {
