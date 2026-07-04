@@ -1,8 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getReviews } from "@/lib/content";
-import { RatingPlate } from "@/components/RatingPlate";
-import { AffiliateLink } from "@/components/AffiliateLink";
+import { OperatorCard } from "@/components/OperatorCard";
 import { JsonLd, itemListLd, breadcrumbLd, faqLd } from "@/lib/schema";
 import { absUrl } from "@/lib/site";
 
@@ -57,32 +56,9 @@ export default function BestSites() {
         </p>
       </header>
 
-      <div className="divide-y divide-line border-y border-line">
+      <div className="grid gap-4">
         {reviews.map((r, i) => (
-          <div key={r.slug} className="flex flex-wrap items-center gap-4 py-5">
-            <span className="font-mono text-xl text-ash w-8">{String(i + 1).padStart(2, "0")}</span>
-            <div className="flex-1 min-w-[12rem]">
-              <Link href={`/reviews/${r.slug}`} className="stencil text-xl text-bone hover:text-rust">
-                {r.site}
-              </Link>
-              <p className="mt-1 text-sm text-ash line-clamp-2">{r.description}</p>
-              {r.promoCode && (
-                <span className="mt-1 inline-block font-mono text-xs text-olive">
-                  CODE: {r.promoCode}{r.promoBonus ? ` — ${r.promoBonus}` : ""}
-                </span>
-              )}
-            </div>
-            <RatingPlate rating={r.rating} />
-            <div className="flex flex-col gap-2">
-              <AffiliateLink href={r.url} site={r.site}
-                className="stencil rounded-sm border border-rust bg-rust/10 px-4 py-2 text-xs text-rust hover:bg-rust hover:text-base transition-colors text-center">
-                VISIT
-              </AffiliateLink>
-              <Link href={`/reviews/${r.slug}`} className="stencil text-center text-xs text-ash hover:text-bone">
-                REVIEW
-              </Link>
-            </div>
-          </div>
+          <OperatorCard key={r.slug} review={r} rank={i + 1} />
         ))}
       </div>
 
