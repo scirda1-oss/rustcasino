@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { getBlogPosts, getBlogPost } from "@/lib/content";
+import { AuthorByline } from "@/components/AuthorByline";
 import { JsonLd, articleLd, breadcrumbLd } from "@/lib/schema";
 import { absUrl } from "@/lib/site";
 
@@ -44,11 +45,9 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         { name: "Guides", path: "/blog" },
         { name: p.title, path: `/blog/${p.slug}` },
       ])} />
-      <header>
-        <p className="stencil text-xs text-ash">
-          By {p.author} · Updated {p.updated} · Published {p.published}
-        </p>
-        <h1 className="stencil mt-1 text-4xl text-bone">{p.title}</h1>
+      <header className="space-y-4">
+        <h1 className="stencil text-4xl text-bone">{p.title}</h1>
+        <AuthorByline lastTested={p.updated} published={p.published} />
       </header>
       <div>{renderBody(p.body)}</div>
       <nav className="border-t border-line pt-6 text-sm">

@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { getReviews, getReview } from "@/lib/content";
 import { RatingPlate } from "@/components/RatingPlate";
 import { PromoTab } from "@/components/PromoTab";
+import { AuthorByline } from "@/components/AuthorByline";
 import { AffiliateLink } from "@/components/AffiliateLink";
 import { JsonLd, reviewLd, breadcrumbLd, faqLd } from "@/lib/schema";
 import { absUrl } from "@/lib/site";
@@ -42,10 +43,7 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
 
       <header className="flex flex-wrap items-start justify-between gap-6">
         <div>
-          <p className="stencil text-xs text-ash">
-            Updated {r.updated} · Published {r.published}
-          </p>
-          <h1 className="stencil mt-1 text-4xl text-bone">{r.site} Review</h1>
+          <h1 className="stencil text-4xl text-bone">{r.site} Review</h1>
           <p className="mt-3 max-w-2xl text-ash">{r.description}</p>
           <AffiliateLink href={r.url} site={r.site}
             className="stencil mt-4 inline-block rounded-sm border border-rust bg-rust/10 px-5 py-3 text-sm text-rust hover:bg-rust hover:text-base transition-colors">
@@ -54,6 +52,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         </div>
         <RatingPlate rating={r.rating} />
       </header>
+
+      <AuthorByline lastTested={r.updated} published={r.published} />
 
       {r.promoCode && (
         <PromoTab code={r.promoCode} bonus={r.promoBonus} />

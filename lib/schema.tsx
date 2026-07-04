@@ -1,5 +1,16 @@
-import { SITE, absUrl } from "./site";
+import { SITE, absUrl, AUTHOR } from "./site";
 import type { Review, Promo, BlogPost } from "./content";
+
+// Person schema for the site editor (E-E-A-T author signal).
+export function authorLd() {
+  return {
+    "@type": "Person",
+    name: AUTHOR.name,
+    jobTitle: AUTHOR.role,
+    url: absUrl(AUTHOR.path),
+    worksFor: { "@type": "Organization", name: SITE.name, url: SITE.domain },
+  };
+}
 
 // JSON-LD builders (task 1.2 / per-template schema)
 
@@ -59,7 +70,8 @@ export function reviewLd(r: Review) {
       bestRating: 5,
       worstRating: 0,
     },
-    author: { "@type": "Organization", name: SITE.name },
+    author: authorLd(),
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.domain },
     datePublished: r.published,
     dateModified: r.updated,
   };
@@ -84,7 +96,8 @@ export function articleLd(post: BlogPost) {
     "@type": "Article",
     headline: post.title,
     description: post.description,
-    author: { "@type": "Organization", name: post.author },
+    author: authorLd(),
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.domain },
     datePublished: post.published,
     dateModified: post.updated,
   };

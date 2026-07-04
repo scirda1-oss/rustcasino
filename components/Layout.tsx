@@ -37,6 +37,8 @@ export function Footer() {
       <div className="mx-auto max-w-content px-4 py-10 text-sm text-ash">
         <div className="flex flex-wrap gap-x-8 gap-y-2">
           <Link href="/about" className="hover:text-bone">About</Link>
+          <Link href="/authors" className="hover:text-bone">Editorial Team</Link>
+          <Link href="/how-we-rate" className="hover:text-bone">How We Rate</Link>
           <Link href="/responsible-gambling" className="hover:text-bone">Responsible Gambling</Link>
           <Link href="/contact" className="hover:text-bone">Contact</Link>
           <Link href="/privacy" className="hover:text-bone">Privacy</Link>

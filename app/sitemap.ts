@@ -5,7 +5,7 @@ import { SITE } from "@/lib/site";
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const stat = ["", "/best-rust-gambling-sites", "/rust-skin-gambling", "/reviews", "/promo", "/legit",
-    "/how-we-rate", "/blog", "/about", "/responsible-gambling", "/contact", "/privacy"]
+    "/how-we-rate", "/authors", "/blog", "/about", "/responsible-gambling", "/contact", "/privacy"]
     .map((p) => ({ url: `${SITE.domain}${p}`, lastModified: now }));
   const reviews = getReviews().map((r) => ({
     url: `${SITE.domain}/reviews/${r.slug}`, lastModified: new Date(r.updated),
