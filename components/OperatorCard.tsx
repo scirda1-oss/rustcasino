@@ -17,17 +17,28 @@ function paymentsFor(deposits: string[]) {
   return PAYMENTS.filter((p) => deposits.some((d) => p.test(d)));
 }
 
+// Logo file per operator. Real brand logo where a clean, transparent asset was
+// sourced; on-brand wordmark fallback (public/logos/<slug>.svg) otherwise.
+const LOGO: Record<string, string> = {
+  banditcamp: "banditcamp.svg", // fallback — source blocked
+  rustclash: "rustclash.svg",   // fallback — sourced asset was white-bg/opaque
+  rustmagic: "rustmagic.png",   // real logo (transparent)
+  rustyloot: "rustyloot.svg",   // fallback — source blocked
+  rustypot: "rustypot.svg",     // fallback — source blocked
+};
+
 export function OperatorCard({ review: r, rank }: { review: Review; rank: number }) {
   const tags = r.games.slice(0, 4);
   const payments = paymentsFor(r.deposits);
   const offer = r.promoBonus ?? r.bonuses[0];
+  const logo = LOGO[r.slug] ?? `${r.slug}.svg`;
 
   return (
     <div className="rounded-sm border border-line bg-panel p-5 transition-colors hover:border-rust/60">
       <div className="flex flex-wrap items-center gap-4">
         <span className="stencil text-lg text-ash">{String(rank).padStart(2, "0")}</span>
-        {/* Wordmark logo fallback (our styling, not the operator's trademarked mark) */}
-        <img src={`/logos/${r.slug}.svg`} alt={`${r.site} logo`} width={160} height={32} className="h-8 w-auto" />
+        {/* Normalized to a uniform max height; aspect ratio preserved (w-auto). */}
+        <img src={`/logos/${logo}`} alt={`${r.site} logo`} height={32} className="h-8 w-auto max-w-[170px] object-contain object-left" />
         <div className="ml-auto">
           <RatingPlate rating={r.rating} />
         </div>
