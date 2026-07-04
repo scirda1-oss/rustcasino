@@ -30,6 +30,8 @@ const nextConfig = {
       { source: '/alternatives/rustclash', destination: '/reviews/rustclash', permanent: true },
       // rustchance review existed on old site but has no affiliate deal — redirect to money page
       { source: '/reviews/rustchance', destination: '/best-rust-gambling-sites', permanent: true },
+      // Reversed-duplicate comparison consolidated to the canonical banditcamp-vs-rustclash
+      { source: '/compare/rustclash-vs-banditcamp', destination: '/compare/banditcamp-vs-rustclash', permanent: true },
     ];
   },
 };
