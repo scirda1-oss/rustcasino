@@ -64,8 +64,15 @@ to `main` (`scirda1-oss/rustcasino`).
   wordmark logos in `public/logos/`, payment icons in `public/icons/`
 
 **Reviews** (`content/reviews/*.mdx`, Zod-validated, sorted by rating)
-- `/reviews` index + 5 reviews: BanditCamp (4.7), RustClash (4.4),
-  RustMagic (4.2), RustyLoot (4.1), RustyPot (4.0)
+- `/reviews` index + 5 reviews. Ratings reconciled (Trustpilot + testing +
+  track record): RustClash 4.3, RustyLoot 4.3, BanditCamp 3.9, RustMagic 3.6,
+  RustyPot 3.6. `getReviews()` sorts by rating, so all lists re-order automatically.
+
+**Trustpilot data** (`content/trustpilot.json`, Zod-validated, sourced Jan 2026)
+- Per operator: rating, review count, sample (robust/limited), pros/cons.
+- `TrustpilotSummary` on every review + legit page; compact badge on
+  `OperatorCard`. `/how-we-rate` explains our score blends testing + Trustpilot
+  + track record (so it can differ from Trustpilot alone).
 
 **Promos** (`content/promos/*.mdx`)
 - `/promo` index + 5 promo pages (one per operator above)
