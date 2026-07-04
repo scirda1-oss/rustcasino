@@ -59,9 +59,19 @@ to `main` (`scirda1-oss/rustcasino`).
   into Article/Review JSON-LD. NOTE: editor "Marcus Feld" is a placeholder
   persona — replace with a real team member.
 
+**Brand**
+- Site logo `public/logos/rust-casino-logo.png` (transparent) in the header;
+  favicon `app/icon.png` (tag-mark), `app/apple-icon.png`, and OG/Twitter image
+  `app/opengraph-image.png` (Next file conventions auto-wire metadata).
+
 **Components**
-- `OperatorCard` (rich card, money + mode pages), `AuthorByline`,
-  wordmark logos in `public/logos/`, payment icons in `public/icons/`
+- `OperatorCard` (rich card, money + mode pages; all 5 operators use real logos
+  in `public/logos/`), `AuthorByline`, `TrustpilotSummary`, payment icons in
+  `public/icons/`
+
+**Comparisons** — winners reconciled to the ratings + Trustpilot data:
+`banditcamp-vs-rustclash` → RustClash, `banditcamp-vs-rustmagic` → BanditCamp,
+`rustclash-vs-rustypot` → RustClash. No winner contradicts its rating.
 
 **Reviews** (`content/reviews/*.mdx`, Zod-validated, sorted by rating)
 - `/reviews` index + 5 reviews. Ratings reconciled (Trustpilot + testing +
