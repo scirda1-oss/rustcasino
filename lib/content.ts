@@ -166,3 +166,23 @@ export function getComparisons(): Comparison[] {
 export function getComparison(slug: string) {
   return getComparisons().find((c) => c.slug === slug);
 }
+
+// --- Trustpilot community data (sourced Jan 2026; validated so bad data fails the build) ---
+import trustpilotData from "@/content/trustpilot.json";
+
+export const trustpilotSchema = z.object({
+  rating: z.number().min(0).max(5),
+  reviews: z.number().int().nonnegative(),
+  sample: z.enum(["robust", "limited"]),
+  lastChecked: z.string(),
+  pros: z.array(z.string()),
+  cons: z.array(z.string()),
+});
+export type Trustpilot = z.output<typeof trustpilotSchema> & { slug: string };
+
+const trustpilotParsed = z.record(trustpilotSchema).parse(trustpilotData);
+
+export function getTrustpilot(slug: string): Trustpilot | undefined {
+  const v = trustpilotParsed[slug];
+  return v ? { slug, ...v } : undefined;
+}

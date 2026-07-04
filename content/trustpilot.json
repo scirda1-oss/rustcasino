@@ -1,0 +1,92 @@
+{
+  "banditcamp": {
+    "rating": 3.6,
+    "reviews": 1325,
+    "sample": "robust",
+    "lastChecked": "2026-01",
+    "pros": [
+      "Fast, responsive support with named agents",
+      "Instant skin deposits, no trade lock",
+      "Largest active community; EOS provably fair",
+      "Free scrap faucet / no-deposit play"
+    ],
+    "cons": [
+      "Reports of unexplained bans with balance loss",
+      "Withdrawal requires wagering deposited scrap first",
+      "High skin conversion fees vs Steam",
+      "Skin-only withdrawals (crypto limited)"
+    ]
+  },
+  "rustclash": {
+    "rating": 4.1,
+    "reviews": 241,
+    "sample": "robust",
+    "lastChecked": "2026-01",
+    "pros": [
+      "Fast live-chat support (under 5 min)",
+      "No-deposit welcome (free Gold Coins)",
+      "8 game modes, 500+ concurrent players",
+      "Provably fair on all originals"
+    ],
+    "cons": [
+      "Confusing dual-currency (Coins vs Gems)",
+      "Withdrawal fees 2-5% crypto, 3-10% skins",
+      "KYC delays reported on larger withdrawals",
+      "US geo-blocks in several states"
+    ]
+  },
+  "rustmagic": {
+    "rating": 3.4,
+    "reviews": 55,
+    "sample": "limited",
+    "lastChecked": "2026-01",
+    "pros": [
+      "Curacao licensed + EOS provably fair (rare in niche)",
+      "0% fees on skin deposits",
+      "Deep rakeback (instant/daily/weekly/monthly)",
+      "Instant skin deposits"
+    ],
+    "cons": [
+      "Withdrawal blocks/delays reported after big wins",
+      "KYC-then-ban complaints",
+      "High 10% house edge",
+      "Small review sample - not statistically robust"
+    ]
+  },
+  "rustyloot": {
+    "rating": 4.4,
+    "reviews": 263,
+    "sample": "robust",
+    "lastChecked": "2026-01",
+    "pros": [
+      "Highest Trustpilot in our roster",
+      "Fast support (sub-minute replies common)",
+      "8 game modes, strong game variety",
+      "Flexible deposits (skins, crypto, cards)"
+    ],
+    "cons": [
+      "Level-gated crypto withdrawals",
+      "Occasional withdrawal-review holds",
+      "No gambling license",
+      "Geo-restrictions in some regions"
+    ]
+  },
+  "rustypot": {
+    "rating": 3.9,
+    "reviews": 115,
+    "sample": "limited",
+    "lastChecked": "2026-01",
+    "pros": [
+      "Longest-running Rust site (since 2017)",
+      "PvP model - no house edge on coinflip",
+      "Active admins, fast support",
+      "Instant skin payouts, no trade lock"
+    ],
+    "cons": [
+      "Only 2 game modes (jackpot, coinflip)",
+      "High 22% jackpot commission",
+      "Skin-only deposits/withdrawals",
+      "Conflicting/limited trust signals - small sample"
+    ]
+  }
+}
