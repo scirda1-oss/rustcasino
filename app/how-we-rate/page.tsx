@@ -97,6 +97,26 @@ export default function HowWeRate() {
       </section>
 
       <section>
+        <h2 className="stencil text-2xl text-bone">Why our score can differ from Trustpilot</h2>
+        <p className="mt-3 text-ash leading-relaxed">
+          You will see a site's Trustpilot rating and review count on each of our reviews, but our
+          own score is not a copy of it. Our rating <span className="text-bone">blends three inputs</span>:
+          our hands-on testing (real deposits, timed withdrawals, provably-fair checks), Trustpilot and
+          wider community sentiment, and the site's track record over time. Trustpilot is one signal,
+          not the verdict — a small review sample can swing a raw Trustpilot number, and public reviews
+          skew toward people who just won or just got burned.
+        </p>
+        <p className="mt-3 text-ash leading-relaxed">
+          So our figure can land above or below the Trustpilot one. A site with a middling Trustpilot
+          score but a clean payout record in our own testing and a long track record can rate higher
+          with us; a site with a shiny Trustpilot average built on a handful of reviews will not get the
+          benefit of the doubt until the sample and the payout history back it up. Where the numbers
+          diverge, the review text explains why, so the reconciled score is always defensible rather
+          than arbitrary.
+        </p>
+      </section>
+
+      <section>
         <h2 className="stencil text-2xl text-bone">Why trust us</h2>
         <p className="mt-3 text-ash leading-relaxed">
           We are an independent affiliate site: we earn commissions when you sign up through our links,
