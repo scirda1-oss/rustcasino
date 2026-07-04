@@ -17,8 +17,14 @@ export function Header() {
   return (
     <header className="border-b border-line bg-panel/60 backdrop-blur">
       <div className="mx-auto flex max-w-content items-center justify-between px-4 py-4">
-        <Link href="/" className="stencil text-xl text-bone">
-          RUST<span className="text-rust">.CASINO</span>
+        <Link href="/" aria-label="Rust.Casino home" className="flex items-center">
+          <img
+            src="/logos/rust-casino-logo.png"
+            alt="Rust.Casino"
+            width={880}
+            height={567}
+            className="h-10 w-auto md:h-11"
+          />
         </Link>
         <nav className="flex gap-6 text-sm">
           {nav.map((n) => (
