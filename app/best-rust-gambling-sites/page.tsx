@@ -8,7 +8,7 @@ import { absUrl } from "@/lib/site";
 const faq = [
   {
     q: "What are the best Rust gambling sites in 2026?",
-    a: "BanditCamp leads for most players thanks to the biggest pots and most active community, followed by RustClash for game variety and its free-to-play daily case. RustMagic, RustyLoot and RustyPot round out the list depending on whether you want payment flexibility, a sleek interface or low-minimum coinflip.",
+    a: "RustClash and RustyLoot top our current ratings for game variety, community trust and support responsiveness. BanditCamp still ranks strongly for the biggest pots and the most active community, with RustMagic and RustyPot rounding out the list depending on whether you want deep rakeback or low-minimum, long-running coinflip. Our ratings blend hands-on testing with Trustpilot community sentiment, so the order reflects trust and payout reliability, not just size.",
   },
   {
     q: "How do we rate Rust gambling sites?",
@@ -82,8 +82,8 @@ export default function BestSites() {
           The best Rust sites share a few traits: a provably fair system you can verify, fast skin
           deposits and withdrawals with no trade lock, a game selection that goes beyond basic case
           opening, and a genuine free-to-play path so you can test before risking your own skins.
-          BanditCamp and RustClash both check these boxes; the rest of the list trades scale for
-          specific strengths like payment flexibility or low minimums.
+          RustClash, RustyLoot and BanditCamp all check these boxes; the rest of the list trades scale
+          for specific strengths like payment flexibility or low minimums.
         </p>
       </section>
 

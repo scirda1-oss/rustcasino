@@ -53,7 +53,7 @@ export default function HowWeRate() {
         <p className="mt-4 text-ash leading-relaxed">
           Every rating on Rust.Casino comes from hands-on testing, not affiliate deals. Here is exactly
           what we check, how we test it, and why our scores are spread to reflect real differences
-          between sites rather than clustered near the top. Ratings run 4.0–4.7 today because the sites
+          between sites rather than clustered near the top. Ratings run 3.6–4.3 today because the sites
           genuinely differ; a higher score means a genuinely stronger site.
         </p>
       </header>
