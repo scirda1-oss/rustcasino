@@ -96,6 +96,9 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         <Link href="/best-rust-gambling-sites" className="text-ash hover:text-bone">
           All Rust gambling sites →
         </Link>
+        <Link href="/how-we-rate" className="text-ash hover:text-bone">
+          See how we rate →
+        </Link>
       </nav>
 
       {related.length > 0 && (

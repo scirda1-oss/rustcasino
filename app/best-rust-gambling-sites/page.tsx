@@ -71,6 +71,9 @@ export default function BestSites() {
           between sites rather than bunching everything near the top, so a higher score means a
           genuinely stronger site, not a bigger affiliate deal.
         </p>
+        <Link href="/how-we-rate" className="mt-3 inline-block text-sm text-rust hover:text-rust2">
+          See how we rate →
+        </Link>
       </section>
 
       <section>

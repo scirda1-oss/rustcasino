@@ -9,6 +9,7 @@ const nav = [
   { href: "/rust-skin-gambling", label: "Skin Gambling" },
   { href: "/compare", label: "Compare" },
   { href: "/legit", label: "Legit?" },
+  { href: "/how-we-rate", label: "How We Rate" },
 ];
 
 export function Header() {
