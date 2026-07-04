@@ -44,5 +44,77 @@
       "Sign-up bonus is small; value is in ongoing rewards",
       "Withdrawals route through the skin marketplace rather than direct cash"
     ]
+  },
+  "rustmagic": {
+    "slug": "is-rustmagic-legit",
+    "site": "RustMagic",
+    "reviewSlug": "rustmagic",
+    "url": "https://rustmagic.com/r/rustcasino",
+    "verdict": "legit",
+    "title": "Is RustMagic Legit? 2026 Safety Review",
+    "description": "Is RustMagic legit or a scam? Our 2026 safety check covers its provably fair system, deposit and withdrawal options including PayPal, and reputation before you deposit.",
+    "established": "Not disclosed",
+    "provablyFair": true,
+    "summary": "RustMagic is a legitimate Rust gambling site with a clean, easy-to-navigate interface and a provably fair system you can verify. Its stand-out is payment flexibility, with deposits and withdrawals via Rust skins, crypto, PayPal and gift cards, backed by regular promotions and loyalty rewards. It does not have the scale, pots or unique game modes of the biggest sites, but on legitimacy it is a solid, reliable pick, especially if payment options matter to you. It is 18+ and gambling carries risk.",
+    "checks": [
+      { "label": "Provably fair", "pass": true, "note": "Uses a provably fair system you can verify per round" },
+      { "label": "Payment options", "pass": true, "note": "Deposits via Rust skins, crypto, PayPal and gift cards" },
+      { "label": "Withdrawals", "pass": true, "note": "Wide withdrawal options, including PayPal alongside skins and crypto" },
+      { "label": "Interface", "pass": true, "note": "Clean, easy-to-navigate platform with smooth onboarding" },
+      { "label": "Promotions", "pass": true, "note": "Regular promotions and loyalty rewards" }
+    ],
+    "redFlags": [
+      "Smaller community and pots than BanditCamp",
+      "Fewer standout unique game modes than the biggest sites",
+      "As with all skin gambling, the house edge means most players lose over time"
+    ]
+  },
+  "rustyloot": {
+    "slug": "is-rustyloot-legit",
+    "site": "RustyLoot",
+    "reviewSlug": "rustyloot",
+    "url": "https://rustyloot.gg/r/RUSTCASINO",
+    "verdict": "legit",
+    "title": "Is RustyLoot Legit? 2026 Safety Review",
+    "description": "Is RustyLoot legit or a scam? Our 2026 safety check covers its platform, Steam onboarding, promotions and smaller footprint before you deposit.",
+    "established": "Not disclosed",
+    "provablyFair": false,
+    "summary": "RustyLoot is a legitimate, sleek and modern Rust and CS2 gambling site with a polished interface, fast Steam onboarding and frequent promotions. Its footprint and game selection are narrower than the established sites, so it works best as a secondary site for promos rather than your main home, but there is nothing that undermines its legitimacy. It is 18+ and gambling carries the usual risk.",
+    "checks": [
+      { "label": "Skin deposits and withdrawals", "pass": true, "note": "Skin-based deposits and withdrawals via Steam, plus crypto" },
+      { "label": "Onboarding", "pass": true, "note": "Simple, fast sign-up through Steam" },
+      { "label": "Promotions", "pass": true, "note": "Frequent promotions and a sign-up bonus via referral" },
+      { "label": "Platform", "pass": true, "note": "Sleek, modern, polished interface" },
+      { "label": "Track record", "pass": false, "note": "Smaller, newer footprint and community than the established sites, so less of a track record to lean on" }
+    ],
+    "redFlags": [
+      "Narrower game selection than the top sites",
+      "Best used as a secondary site for promotions rather than a primary home",
+      "As with all skin gambling, the house edge means most players lose over time"
+    ]
+  },
+  "rustypot": {
+    "slug": "is-rustypot-legit",
+    "site": "RustyPot",
+    "reviewSlug": "rustypot",
+    "url": "https://rustypot.com",
+    "verdict": "legit",
+    "title": "Is RustyPot Legit? 2026 Safety Review",
+    "description": "Is RustyPot legit or a scam? Our 2026 safety check covers its track record since 2019, instant skin deposits, low minimums and promo-code caveat before you deposit.",
+    "established": "2019",
+    "provablyFair": false,
+    "summary": "RustyPot is a legitimate Rust coinflip and jackpot site that has been trusted since 2019. It is not a full casino, with a game set built mainly around coinflip via the Jimmy NPC and jackpot, but instant skin deposits and withdrawals with no trade lock and very low minimums make it a good pick for quick, low-stakes action. Confirm the CASINO promo code tracks before relying on it. It is 18+ and gambling carries risk.",
+    "checks": [
+      { "label": "Track record", "pass": true, "note": "Operating and trusted since 2019 with an active community" },
+      { "label": "Deposits and withdrawals", "pass": true, "note": "Instant skin deposits and withdrawals via Steam trade, no trade lock" },
+      { "label": "Low minimum", "pass": true, "note": "Very low minimum deposit, suited to small stakes" },
+      { "label": "Game selection", "pass": false, "note": "Narrow: mainly coinflip (Jimmy NPC) and jackpot, not a full casino" },
+      { "label": "Promo tracking", "pass": false, "note": "Code CASINO uses a bare domain link; confirm it attributes before relying on it" }
+    ],
+    "redFlags": [
+      "Smaller pots than the largest sites",
+      "Confirm the CASINO promo code tracks before you count on it",
+      "As with all skin gambling, the house edge means most players lose over time"
+    ]
   }
 }

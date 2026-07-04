@@ -34,5 +34,41 @@
       { "label": "Minimum", "a": "Low", "b": "Very low" },
       { "label": "Provably fair", "a": "Yes", "b": "Yes" }
     ]
+  },
+  "banditcamp-vs-rustmagic": {
+    "slug": "banditcamp-vs-rustmagic",
+    "a": "banditcamp",
+    "b": "rustmagic",
+    "title": "BanditCamp vs RustMagic 2026: Which Is Better?",
+    "description": "BanditCamp vs RustMagic compared for 2026: pots, games, payment options and which Rust gambling site is the better fit for you.",
+    "intro": "BanditCamp and RustMagic are both established, provably fair Rust gambling sites, but they suit different priorities. BanditCamp brings the biggest pots and the most active community; RustMagic brings a cleaner interface and the widest payment options, including PayPal. This comparison shows which fits you.",
+    "winner": "banditcamp",
+    "winnerReason": "For most players BanditCamp wins on scale, with bigger pots, a larger community and more Rust-native games. Choose RustMagic if payment flexibility (PayPal, crypto, gift cards) and a clean, simple interface matter more to you than pot size.",
+    "rows": [
+      { "label": "Established", "a": "2021", "b": "Not disclosed" },
+      { "label": "Best for", "a": "Biggest pots, active community", "b": "Payment flexibility, clean UX" },
+      { "label": "Signature games", "a": "Beancan Blast, case battles, Crate Royale", "b": "Magic Wheel, Mines, Flipper, Upgrader, case battles" },
+      { "label": "Payments", "a": "Rust skins, crypto, marketplace", "b": "Rust skins, crypto, PayPal, gift cards" },
+      { "label": "Welcome bonus", "a": "Small balance + XP bonus", "b": "Sign-up bonus via referral" },
+      { "label": "Provably fair", "a": "Yes", "b": "Yes" }
+    ]
+  },
+  "rustclash-vs-banditcamp": {
+    "slug": "rustclash-vs-banditcamp",
+    "a": "rustclash",
+    "b": "banditcamp",
+    "title": "RustClash vs BanditCamp 2026: Which Is Better?",
+    "description": "RustClash vs BanditCamp compared for 2026: game variety, free-to-play, pots and community, and which Rust gambling site wins for you.",
+    "intro": "RustClash and BanditCamp are the two heavyweight Rust gambling sites. RustClash leads on game variety and its free-to-play daily case; BanditCamp leads on pot size and community. Here is how they stack up head to head.",
+    "winner": "banditcamp",
+    "winnerReason": "BanditCamp takes it for most players on pot size, community and Rust-native games. Pick RustClash if you want the widest game variety (Crash, Plinko, Mines, Upgrader) and a genuine no-deposit daily free case.",
+    "rows": [
+      { "label": "Established", "a": "~2020", "b": "2021" },
+      { "label": "Best for", "a": "Game variety, free-to-play", "b": "Biggest pots, active community" },
+      { "label": "Signature games", "a": "Crash, Plinko, Mines, Upgrader", "b": "Beancan Blast, case battles, Crate Royale" },
+      { "label": "Welcome bonus", "a": "3 free cases + daily free case", "b": "Small balance + XP bonus" },
+      { "label": "Withdrawals", "a": "Fast, fee-free", "b": "Skin marketplace" },
+      { "label": "Provably fair", "a": "Yes", "b": "Yes" }
+    ]
   }
 }
