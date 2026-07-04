@@ -6,6 +6,7 @@ const nav = [
   { href: "/reviews", label: "Reviews" },
   { href: "/promo", label: "Promo Codes" },
   { href: "/rust-case-opening-sites", label: "Case Opening" },
+  { href: "/rust-skin-gambling", label: "Skin Gambling" },
   { href: "/compare", label: "Compare" },
 ];
 
