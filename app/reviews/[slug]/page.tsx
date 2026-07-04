@@ -5,6 +5,7 @@ import { getReviews, getReview } from "@/lib/content";
 import { RatingPlate } from "@/components/RatingPlate";
 import { PromoTab } from "@/components/PromoTab";
 import { AuthorByline } from "@/components/AuthorByline";
+import { TrustpilotSummary } from "@/components/TrustpilotSummary";
 import { AffiliateLink } from "@/components/AffiliateLink";
 import { JsonLd, reviewLd, breadcrumbLd, faqLd } from "@/lib/schema";
 import { absUrl } from "@/lib/site";
@@ -72,6 +73,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
         <h2 className="stencil text-2xl text-bone">Verdict</h2>
         <p className="mt-3 text-ash leading-relaxed">{r.verdict}</p>
       </section>
+
+      <TrustpilotSummary slug={r.slug} />
 
       {r.faq.length > 0 && (
         <section>

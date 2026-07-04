@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getLegitCheck, getReview } from "@/lib/content";
 import { AffiliateLink } from "@/components/AffiliateLink";
 import { RatingPlate } from "@/components/RatingPlate";
+import { TrustpilotSummary } from "@/components/TrustpilotSummary";
 import { JsonLd, breadcrumbLd } from "@/lib/schema";
 
 export function LegitPage({ slug }: { slug: string }) {
@@ -55,6 +56,8 @@ export function LegitPage({ slug }: { slug: string }) {
           {l.redFlags.map((f, i) => <li key={i}>— {f}</li>)}
         </ul>
       </section>
+
+      <TrustpilotSummary slug={l.reviewSlug} />
 
       <nav className="flex flex-wrap gap-4 border-t border-line pt-6 text-sm">
         <Link href={`/reviews/${l.reviewSlug}`} className="text-rust hover:text-rust2">Full {l.site} review →</Link>

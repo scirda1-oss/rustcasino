@@ -1,7 +1,9 @@
 import Link from "next/link";
 import type { Review } from "@/lib/content";
+import { getTrustpilot } from "@/lib/content";
 import { RatingPlate } from "@/components/RatingPlate";
 import { AffiliateLink } from "@/components/AffiliateLink";
+import { formatCount } from "@/components/TrustpilotSummary";
 
 // Payment-method classifier: maps a review's free-text `deposits` to generic icons.
 // Order matters — gift cards are tested before generic cards so "Gift cards" doesn't match both.
@@ -32,6 +34,7 @@ export function OperatorCard({ review: r, rank }: { review: Review; rank: number
   const payments = paymentsFor(r.deposits);
   const offer = r.promoBonus ?? r.bonuses[0];
   const logo = LOGO[r.slug] ?? `${r.slug}.svg`;
+  const tp = getTrustpilot(r.slug);
 
   return (
     <div className="rounded-sm border border-line bg-panel p-5 transition-colors hover:border-rust/60">
@@ -48,6 +51,13 @@ export function OperatorCard({ review: r, rank }: { review: Review; rank: number
         <p className="mt-4 text-sm text-bone">
           <span className="stencil mr-2 text-[10px] tracking-widest text-olive">OFFER</span>
           {offer}
+        </p>
+      )}
+
+      {tp && (
+        <p className="mt-2 text-xs text-ash">
+          <span className="stencil mr-1 text-olive">Trustpilot</span>
+          <span className="text-bone">{tp.rating.toFixed(1)}</span> / 5 · {formatCount(tp.reviews)} reviews
         </p>
       )}
 
