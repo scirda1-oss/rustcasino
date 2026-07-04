@@ -23,8 +23,8 @@ const LOGO: Record<string, string> = {
   banditcamp: "banditcamp.png", // real logo (transparent)
   rustclash: "rustclash.png",   // real logo (transparent)
   rustmagic: "rustmagic.png",   // real logo (transparent)
-  rustyloot: "rustyloot.svg",   // fallback — awaiting a usable (non-AVIF) asset
-  rustypot: "rustypot.svg",     // fallback — not yet provided
+  rustyloot: "rustyloot.jpg",   // real logo (opaque dark bg — awaiting transparent version)
+  rustypot: "rustypot.png",     // real logo (opaque dark bg — awaiting transparent version)
 };
 
 export function OperatorCard({ review: r, rank }: { review: Review; rank: number }) {
