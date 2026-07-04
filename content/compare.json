@@ -1,0 +1,38 @@
+{
+  "banditcamp-vs-rustclash": {
+    "slug": "banditcamp-vs-rustclash",
+    "a": "banditcamp",
+    "b": "rustclash",
+    "title": "BanditCamp vs RustClash 2026: Which Is Better?",
+    "description": "BanditCamp vs RustClash compared for 2026: pots, games, bonuses, withdrawals and which Rust gambling site is better for your play style.",
+    "intro": "BanditCamp and RustClash are two of the biggest Rust gambling sites. BanditCamp wins on community size and pot value; RustClash wins on game variety and its free-to-play daily case. This comparison breaks down which suits you.",
+    "winner": "banditcamp",
+    "winnerReason": "For most players BanditCamp edges it on pot size, community and Rust-native game selection. Pick RustClash if you specifically want more game variety (Crash, Plinko, Mines) and a genuine no-deposit daily case.",
+    "rows": [
+      { "label": "Established", "a": "2021", "b": "~2020" },
+      { "label": "Best for", "a": "Biggest pots, active community", "b": "Game variety, free-to-play" },
+      { "label": "Signature games", "a": "Beancan Blast, case battles, Crate Royale", "b": "Crash, Plinko, Mines, Upgrader" },
+      { "label": "Welcome bonus", "a": "Small balance + XP bonus", "b": "3 free cases + daily free case" },
+      { "label": "Withdrawals", "a": "Skin marketplace", "b": "Fast, fee-free" },
+      { "label": "Provably fair", "a": "Yes", "b": "Yes" }
+    ]
+  },
+  "rustclash-vs-rustypot": {
+    "slug": "rustclash-vs-rustypot",
+    "a": "rustclash",
+    "b": "rustypot",
+    "title": "RustClash vs RustyPot 2026: Which Is Better?",
+    "description": "RustClash vs RustyPot compared for 2026: games, bonuses, minimums and which Rust gambling site fits how you want to play.",
+    "intro": "RustClash is a full case-and-games site; RustyPot is a focused coinflip and jackpot site. They serve different players. This comparison shows which fits your play style.",
+    "winner": "rustclash",
+    "winnerReason": "RustClash is the better all-round site with more games, bonuses and payment options. Choose RustyPot only if you specifically want quick coinflip and jackpot action with very low minimums.",
+    "rows": [
+      { "label": "Established", "a": "~2020", "b": "2019" },
+      { "label": "Best for", "a": "Full casino experience", "b": "Quick coinflip / jackpot" },
+      { "label": "Signature games", "a": "Crash, Plinko, Mines, cases", "b": "Coinflip (Jimmy NPC), jackpot" },
+      { "label": "Welcome bonus", "a": "3 free cases + daily free case", "b": "Free cases via code" },
+      { "label": "Minimum", "a": "Low", "b": "Very low" },
+      { "label": "Provably fair", "a": "Yes", "b": "Yes" }
+    ]
+  }
+}

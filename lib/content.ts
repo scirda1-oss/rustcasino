@@ -134,3 +134,35 @@ export function reviewsForMode(mode: GameMode): Review[] {
     r.games.some((g) => wants.some((w) => g.toLowerCase().includes(w)))
   );
 }
+
+// --- Legit-check pages ---
+import legitData from "@/content/legit.json";
+import compareData from "@/content/compare.json";
+
+export type LegitCheck = {
+  key: string; slug: string; site: string; reviewSlug: string; url: string;
+  verdict: string; title: string; description: string; established: string;
+  provablyFair: boolean; summary: string;
+  checks: { label: string; pass: boolean; note: string }[];
+  redFlags: string[];
+};
+export function getLegitChecks(): LegitCheck[] {
+  return Object.entries(legitData as Record<string, Omit<LegitCheck, "key">>)
+    .map(([key, v]) => ({ key, ...v }));
+}
+export function getLegitCheck(slug: string) {
+  return getLegitChecks().find((l) => l.slug === slug);
+}
+
+export type Comparison = {
+  key: string; slug: string; a: string; b: string; title: string; description: string;
+  intro: string; winner: string; winnerReason: string;
+  rows: { label: string; a: string; b: string }[];
+};
+export function getComparisons(): Comparison[] {
+  return Object.entries(compareData as Record<string, Omit<Comparison, "key">>)
+    .map(([key, v]) => ({ key, ...v }));
+}
+export function getComparison(slug: string) {
+  return getComparisons().find((c) => c.slug === slug);
+}

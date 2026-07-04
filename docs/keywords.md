@@ -24,3 +24,24 @@ Win commercial terms + low-KD game modes.
 - Any "how to win / always win / cheat rust gambling" — all 0-10 vol
 - Odds/math deep guides — no search demand
 - Alec Baldwin "rust case" legal terms — irrelevant noise
+
+## Phase B (buyer-intent pages, from old site's proven page types)
+| Page | Target | Status |
+|---|---|---|
+| /is-rustclash-legit | "is rustclash legit" | built |
+| /is-banditcamp-legit | "is banditcamp legit" | built |
+| /compare/banditcamp-vs-rustclash | comparison intent | built |
+| /compare/rustclash-vs-rustypot | comparison intent | built |
+
+## 301 map (next.config) — old Bolt URLs
+- /methodology→/best-rust-gambling-sites, /promocodes→/promo, /guides/*→/blog
+- old blog posts→/blog or /promo (low demand, not rebuilt)
+- programmatic (bitcoin/rakeback/withdrawal)→money page until filtered lists ship
+- /alternatives/rustclash→/reviews/rustclash
+- /reviews/rustchance→money page (no affiliate deal)
+- review + mode slugs already match, no redirect needed
+
+## Phase B2 backlog (deferred — need operator specifics from Mark)
+- filtered lists: highest-rakeback, fastest-withdrawal, bitcoin-sites (need verified per-operator data)
+- more legit pages: is-banditcamp/rustmagic/rustyloot/rustypot-legit (easy to add via legit.json)
+- more comparisons: banditcamp-vs-rustmagic etc.

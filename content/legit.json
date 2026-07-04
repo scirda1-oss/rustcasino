@@ -1,0 +1,48 @@
+{
+  "rustclash": {
+    "slug": "is-rustclash-legit",
+    "site": "RustClash",
+    "reviewSlug": "rustclash",
+    "url": "https://rustclash.com/r/CAS5",
+    "verdict": "legit",
+    "title": "Is RustClash Legit? 2026 Safety Review",
+    "description": "Is RustClash legit or a scam? Our 2026 safety check covers provably fair verification, withdrawals, ownership and real user reputation before you deposit.",
+    "established": "2020",
+    "provablyFair": true,
+    "summary": "RustClash is a legitimate Rust case and games site that has operated since around 2020. It uses a provably fair system you can verify, processes fast fee-free withdrawals, and is one of the more established names in the niche. As with any skin gambling site it is 18+ and carries the normal risks of gambling, but on the specific question of legitimacy, RustClash checks out.",
+    "checks": [
+      { "label": "Provably fair", "pass": true, "note": "Publishes verifiable fairness for each game round" },
+      { "label": "Withdrawals", "pass": true, "note": "Fast, fee-free; convert skins to funds via Steam or trade on-platform" },
+      { "label": "Track record", "pass": true, "note": "Operating since ~2020, well-known in the Rust gambling community" },
+      { "label": "Transparency", "pass": true, "note": "Contactable operator and public fairness verification" },
+      { "label": "KYC", "pass": true, "note": "Requires KYC for free cases and rain, standard for the niche" }
+    ],
+    "redFlags": [
+      "Modest welcome bonus compared to deposit-match competitors",
+      "As with all skin gambling, the house edge means most players lose over time"
+    ]
+  },
+  "banditcamp": {
+    "slug": "is-banditcamp-legit",
+    "site": "BanditCamp",
+    "reviewSlug": "banditcamp",
+    "url": "https://bandit.camp/r/rustcasino",
+    "verdict": "legit",
+    "title": "Is BanditCamp Legit? 2026 Safety Review",
+    "description": "Is BanditCamp legit or a scam? Our 2026 safety check covers provably fair verification, withdrawals, ownership and community reputation before you deposit.",
+    "established": "2021",
+    "provablyFair": true,
+    "summary": "BanditCamp is a legitimate and well-established Rust gambling site, operated by APEGANG Limited and running since 2021. It has the most active community in the niche, a provably fair system you can verify, and a wide range of deposit and withdrawal options. It is 18+ and gambling carries risk, but on legitimacy specifically, BanditCamp is one of the safest picks in Rust gambling.",
+    "checks": [
+      { "label": "Provably fair", "pass": true, "note": "Verifiable fairness system across games" },
+      { "label": "Withdrawals", "pass": true, "note": "Via the Rust skin marketplace; reliable payouts" },
+      { "label": "Track record", "pass": true, "note": "Operating since 2021, largest active community in the niche" },
+      { "label": "Ownership", "pass": true, "note": "Operated by APEGANG Limited (Cyprus)" },
+      { "label": "Community", "pass": true, "note": "Active chat and Discord, strong reputation among Rust players" }
+    ],
+    "redFlags": [
+      "Sign-up bonus is small; value is in ongoing rewards",
+      "Withdrawals route through the skin marketplace rather than direct cash"
+    ]
+  }
+}

@@ -6,7 +6,7 @@ const nav = [
   { href: "/reviews", label: "Reviews" },
   { href: "/promo", label: "Promo Codes" },
   { href: "/rust-case-opening-sites", label: "Case Opening" },
-  { href: "/rust-gambling-wheel-sites", label: "Wheel" },
+  { href: "/compare", label: "Compare" },
 ];
 
 export function Header() {
