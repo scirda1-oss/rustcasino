@@ -100,3 +100,37 @@ export function getPromo(slug: string) {
 export function getBlogPost(slug: string) {
   return getBlogPosts().find((p) => p.slug === slug);
 }
+
+// --- Game-mode pages (SEO: target low-KD commercial mode terms) ---
+import modesData from "@/content/modes.json";
+
+export type GameMode = {
+  key: string;
+  slug: string;
+  h1: string;
+  title: string;
+  description: string;
+  kd: number;
+  matchGames: string[];
+  intro: string;
+  sectionTitle: string;
+  sectionBody: string;
+};
+
+export function getModes(): GameMode[] {
+  return Object.entries(modesData as Record<string, Omit<GameMode, "key">>).map(
+    ([key, v]) => ({ key, ...v })
+  );
+}
+
+export function getMode(slug: string): GameMode | undefined {
+  return getModes().find((m) => m.slug === slug);
+}
+
+// Reviews whose games match this mode, ranked by rating
+export function reviewsForMode(mode: GameMode): Review[] {
+  const wants = mode.matchGames.map((g) => g.toLowerCase());
+  return getReviews().filter((r) =>
+    r.games.some((g) => wants.some((w) => g.toLowerCase().includes(w)))
+  );
+}

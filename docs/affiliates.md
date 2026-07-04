@@ -1,15 +1,17 @@
 # Affiliate / Referral Programs (task 5.1)
 
-Document each operator's terms here as you register. Do NOT publish commission
-numbers on public pages unless verified from the program itself.
+Real referral links now live in content files. Commission model/rate not published
+on-page (not needed). Verify tracking where noted.
 
-| Operator | URL | Program type | Ref param / code | Commission | Payout | Status |
-|---|---|---|---|---|---|---|
-| BanditCamp | https://bandit.camp | TBD | TBD | TBD | TBD | Not registered |
-| RustClash | https://rustclash.com | TBD | TBD | TBD | TBD | Not registered |
-| RustMagic | TBD | TBD | TBD | TBD | TBD | Not registered |
-| Howl.gg | TBD | TBD | TBD | TBD | TBD | Not registered |
-| RustyPot | TBD | TBD | TBD | TBD | TBD | Not registered |
+| Operator | Ref link / code | Bonus advertised | Status | Verify |
+|---|---|---|---|---|
+| BanditCamp | bandit.camp/r/rustcasino | Free balance + deposit bonus | Live | Confirm payout model in affiliate tab |
+| RustClash | rustclash.com/r/CAS5 (code CAS5) | 3 free cases + daily free case | Live | Pays % of referral WINNINGS not deposits — push active players |
+| RustMagic | rustmagic.com/r/rustcasino | Sign-up bonus | Live | Confirm terms |
+| RustyLoot | rustyloot.gg/r/RUSTCASINO | Sign-up bonus | Live | Confirm terms |
+| RustyPot | rustypot.com (code CASINO) | Free cases | Link is bare domain | CONFIRM code CASINO tracks under your account |
 
-Once a ref param is known, add it to the operator's `url` in the content file
-so AffiliateLink emits the tracked link.
+## To do
+- Verify RustyPot CASINO actually attributes to your account (bare link, no /r/ path).
+- Consider joining Howl.gg and RustReaper (high search demand, no link yet).
+- RustChance: high demand but no affiliate deal — skip until you can join.

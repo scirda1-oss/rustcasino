@@ -5,7 +5,8 @@ const nav = [
   { href: "/best-rust-gambling-sites", label: "Best Sites" },
   { href: "/reviews", label: "Reviews" },
   { href: "/promo", label: "Promo Codes" },
-  { href: "/blog", label: "Guides" },
+  { href: "/rust-case-opening-sites", label: "Case Opening" },
+  { href: "/rust-gambling-wheel-sites", label: "Wheel" },
 ];
 
 export function Header() {

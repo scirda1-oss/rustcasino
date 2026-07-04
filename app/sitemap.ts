@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getReviews, getPromos, getBlogPosts } from "@/lib/content";
+import { getReviews, getPromos, getBlogPosts, getModes } from "@/lib/content";
 import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,5 +16,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getBlogPosts().map((p) => ({
     url: `${SITE.domain}/blog/${p.slug}`, lastModified: new Date(p.updated),
   }));
-  return [...stat, ...reviews, ...promos, ...posts];
+  const modes = getModes().map((m) => ({
+    url: `${SITE.domain}/${m.slug}`, lastModified: now,
+  }));
+  return [...stat, ...modes, ...reviews, ...promos, ...posts];
 }
