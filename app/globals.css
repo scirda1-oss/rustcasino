@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+html { color-scheme: dark; }
+
+body {
+  background-color: #0E0F0C;
+  color: #E8E4D8;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.stencil {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+/* Rating plate: stamped scrap-metal look */
+.rating-plate {
+  font-family: var(--font-mono);
+  background: linear-gradient(180deg, #23271D, #14160F);
+  border: 1px solid #33372B;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 2px 0 rgba(0,0,0,0.4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
