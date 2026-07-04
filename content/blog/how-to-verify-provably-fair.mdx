@@ -1,0 +1,80 @@
+---
+slug: how-to-verify-provably-fair
+title: "How to Verify Provably Fair on Rust Gambling Sites"
+description: "A step-by-step guide to provably fair on Rust gambling sites: what server seed, client seed and nonce mean, and how to check a result was not rigged."
+updated: "2026-07-04"
+published: "2026-07-04"
+related:
+  - rustclash
+  - banditcamp
+---
+
+"Provably fair" is the single most important trust feature on a Rust gambling site, and also the most misunderstood. It is not a promise, a licence or a marketing badge — it is a **cryptographic method** that lets you, the player, check for yourself that the outcome of a game was decided before you bet and was not altered afterwards. If a site offers it and you know how to use it, you never have to take the operator's word that a result was random. This guide explains the moving parts in plain language and walks through the actual verification, step by step. Understanding this is worth more than any bonus, and it is a core part of how we test sites on our [how we rate](/how-we-rate) page.
+
+## The problem provably fair solves
+
+When you open a case or watch a crash multiplier, the site's server decides the outcome. Without any safeguard, you would simply have to trust that the server rolled a genuine random number and did not quietly pick the result that was worst for you. Provably fair removes that trust requirement. It uses a commitment scheme: the site **commits** to the outcome in advance by publishing a scrambled fingerprint of it, then reveals the ingredients afterwards so you can confirm the fingerprint matches. If the site had changed the result at any point, the fingerprint would not match, and the cheat would be obvious.
+
+## The three ingredients: server seed, client seed and nonce
+
+Almost every provably fair system is built from three values. Learn these and the rest is mechanical.
+
+- **Server seed** — a long random string the *site* generates for your session. This is the secret ingredient. Before you play, the site does not show you the server seed itself; instead it shows you a **hash** of it (a fixed-length fingerprint produced by a one-way function like SHA-256). Because the hash is published up front, the site is locked in — it cannot change the server seed later without the hash no longer matching.
+- **Client seed** — a random string tied to *you*. On most sites you can view and often change it. Because you control it, the site cannot have pre-computed a rigged outcome specific to your bet: your input is mixed into every result.
+- **Nonce** — a simple counter that increases by one with each bet (0, 1, 2, 3…). It ensures that the same server seed and client seed produce a *different* result on every consecutive bet, so no two rolls collide.
+
+The site combines these three — typically by hashing `server seed` + `client seed` + `nonce` together — and converts the resulting hash into the game outcome (which case reward you got, where the crash multiplier landed, which wheel segment won).
+
+## How the commitment works over a session
+
+Here is the sequence that makes the whole thing tamper-proof:
+
+- **Before you play**, the site shows you the **hashed server seed**. You cannot reverse it to find the seed, but you can save it.
+- **You play** as many rounds as you like. Each round uses the same (still-secret) server seed, your client seed, and an incrementing nonce.
+- **When you are done** — or when you rotate your seed — the site **reveals the original server seed**.
+- **You verify**: you hash the revealed server seed yourself and check it matches the hash you were shown at the start. If it matches, the seed was fixed in advance. Then you re-compute each round's outcome from the three ingredients and confirm it matches what actually happened.
+
+If both checks pass, the site could not have altered your results. If either fails, walk away and do not deposit again.
+
+## Step-by-step: verifying a result
+
+The exact menu names vary between sites, but the process is always the same shape:
+
+- **Step 1 — Find the fairness panel.** Look for a "Provably Fair", "Fairness" or "Verify" section, usually in your account settings or under a specific game.
+- **Step 2 — Record the hashed server seed** shown for your current seed pair *before* you bet. Copy it somewhere.
+- **Step 3 — Note your client seed and the nonce** for the round you want to check. Most sites display the nonce next to each bet in your history.
+- **Step 4 — Reveal / rotate the server seed.** Trigger the site's "rotate seed" or "reveal" action, which unlocks the real server seed. A new hashed seed is issued for future bets.
+- **Step 5 — Confirm the commitment.** Paste the revealed server seed into any SHA-256 tool and check the output equals the hash you saved in Step 2. Many sites include their own verifier that does this for you.
+- **Step 6 — Reproduce the outcome.** Use the site's provided verifier (or an independent one) with the server seed, client seed and nonce to re-generate the result, and confirm it matches the case reward, multiplier or roll you actually received.
+
+If the hash matches and the regenerated outcome matches, that round was provably fair. Repeat for a few rounds if you want extra confidence.
+
+## What provably fair does — and does not — guarantee
+
+Provably fair is powerful, but be clear about its limits:
+
+- **It proves the result was not rigged after the fact.** That is exactly what it is for.
+- **It does not remove the house edge.** Every game is still designed so the site profits over time. A provably fair coinflip is still slightly worse than 50/50 once the site's cut is applied.
+- **It does not guarantee the site will pay you.** A site can run perfectly fair games and still drag its feet on withdrawals or vanish. Fairness and payout reliability are separate things, which is why we test both. See our [legit checks](/legit) for site-by-site safety verdicts, such as [is RustClash legit](/is-rustclash-legit) or [is BanditCamp legit](/is-banditcamp-legit).
+- **It only counts if it verifies.** A site that displays the words "provably fair" but has no working verifier, or whose hash does not match on reveal, is worse than one with no claim at all.
+
+## Rotate your seed, and check after you do
+
+The reveal step only works if the server seed is actually revealed, and on most sites that happens when you **rotate** your seed pair. Getting into the habit of rotating and then verifying — rather than playing indefinitely on a single seed you never check — is what turns provably fair from a theoretical feature into a real safeguard. Rotate periodically, verify a round or two each time, and you build genuine confidence in a site instead of just assuming it behaves. Many players never touch the fairness panel at all; doing so puts you in a small minority who can actually catch a cheating operator.
+
+## A worked example, in words
+
+Imagine you open a case. Before the round, the site shows you a hashed server seed — a long string of characters that is the fingerprint of a secret value. You open the case and receive a mid-tier skin. Later you rotate your seed, and the site reveals the original server seed. You take that revealed seed and run it through any SHA-256 tool: out comes a hash. You compare it to the fingerprint you saved earlier, and they are identical — proof the site had committed to that exact seed before you ever played. Then you feed the server seed, your client seed and the round's nonce into the verifier, and it reproduces the same mid-tier skin you actually received. Both checks pass, so that case was provably fair. If either had failed — a mismatched hash, or an outcome that would not reproduce — you would have caught the site red-handed, and your next move would be simple: stop playing and withdraw.
+
+## Common questions
+
+- **Do I need to be technical?** No. Most sites include a built-in verifier, so you paste values in rather than computing hashes by hand. Understanding what the values mean is enough.
+- **Can the site change my client seed to cheat?** Not if you set it yourself. That is the whole point of the client seed — your input is mixed into every result, so the site cannot have pre-baked an outcome for your specific bet.
+- **Is a site without provably fair automatically a scam?** Not automatically, but it is a serious mark against it. Prefer sites you can verify, and cross-check the operator against our [legit checks](/legit).
+- **How often should I verify?** You do not need to check every round. Verifying a couple of results when you first use a site, and again occasionally, is enough to know the system is real and working.
+
+## Why this matters for choosing a site
+
+When we rate Rust gambling sites, a working, verifiable provably fair system is a baseline requirement for a top score — but only a baseline. We combine it with real withdrawal testing and community reputation, as described on our [how we rate](/how-we-rate) page. You can put that into practice yourself: before you trust a site with real skins, verify a couple of results using the steps above. If you would like the broader context on how deposits, balances and games fit together first, start with [how Rust skin gambling works](/blog/how-rust-skin-gambling-works), and read our [scam-avoidance guide](/blog/rust-gambling-scam-avoidance) to spot the warning signs a fairness check alone will not catch.
+
+When you are ready to pick a site, our ranked [best Rust gambling sites](/best-rust-gambling-sites) list and full [reviews](/reviews) note which operators have fairness systems we were able to verify. 18+ only — and remember that even a perfectly fair game is still gambling.

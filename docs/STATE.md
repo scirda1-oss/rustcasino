@@ -44,10 +44,24 @@ to `main` (`scirda1-oss/rustcasino`).
 
 **Core / money**
 - `/` — homepage
-- `/best-rust-gambling-sites` — primary money page (ranked operator list)
+- `/best-rust-gambling-sites` — primary money page; uses the rich
+  `OperatorCard` (logo + RatingPlate + offer + game tags + payment icons +
+  promo code + dual CTA Claim Bonus / Read Review)
 - `/rust-skin-gambling` — informational hub (what it is / how it works / game
   types / safety & legality) funnelling to money page + reviews; Article +
   FAQPage JSON-LD, in header nav
+
+**Trust / E-E-A-T**
+- `/how-we-rate` — testing methodology (criteria, how we test, community
+  sentiment, why trust us); linked from money page + every review; in nav
+- `/authors` — editorial team / editor profile (ProfilePage + Person JSON-LD);
+  named byline (`AuthorByline`) on every review + guide; Person author wired
+  into Article/Review JSON-LD. NOTE: editor "Marcus Feld" is a placeholder
+  persona — replace with a real team member.
+
+**Components**
+- `OperatorCard` (rich card, money + mode pages), `AuthorByline`,
+  wordmark logos in `public/logos/`, payment icons in `public/icons/`
 
 **Reviews** (`content/reviews/*.mdx`, Zod-validated, sorted by rating)
 - `/reviews` index + 5 reviews: BanditCamp (4.7), RustClash (4.4),
@@ -68,8 +82,11 @@ to `main` (`scirda1-oss/rustcasino`).
 - `/compare` index + `/compare/banditcamp-vs-rustclash` (winner: BanditCamp)
   · `/compare/rustclash-vs-rustypot` (winner: RustClash)
 
-**Blog** (`content/blog/*.mdx`)
-- `/blog` index + `how-rust-skin-gambling-works`
+**Blog / guides** (`content/blog/*.mdx`, in nav as "Guides"; renderer supports
+`##`/`###`, bullet lists, `**bold**`, and internal/external links)
+- `/blog` index + 3 guides (1500+ words each, Article JSON-LD, byline):
+  `how-rust-skin-gambling-works`, `how-to-verify-provably-fair`,
+  `rust-gambling-scam-avoidance`
 
 **Static / trust**
 - `/about` · `/contact` · `/privacy` · `/responsible-gambling`
