@@ -10,7 +10,7 @@ export default function Contact() {
       <h1 className="stencil text-4xl text-bone">Contact</h1>
       <p className="text-ash leading-relaxed">
         Questions, corrections, or partnership enquiries: email
-        {" "}<span className="font-mono text-olive">hello@rust.casino</span>.
+        {" "}<span className="font-mono text-olive">info@rust.casino</span>.
       </p>
     </div>
   );

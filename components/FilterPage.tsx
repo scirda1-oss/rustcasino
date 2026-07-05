@@ -37,6 +37,11 @@ export function FilterPage({ slug }: { slug: string }) {
         <p className="mt-4 max-w-2xl text-ash leading-relaxed">{f.intro}</p>
       </header>
 
+      <p className="rounded-sm border border-olive/40 bg-olive/5 p-3 text-xs text-ash">
+        <span className="stencil mr-1 text-olive">Note</span>
+        Verify current terms before depositing — operators change fees, bonuses and payment methods without notice.
+      </p>
+
       {f.layout === "table" ? (
         <section className="overflow-x-auto">
           <table className="w-full text-sm">
