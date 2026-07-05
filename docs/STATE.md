@@ -37,6 +37,13 @@ to `main` (`scirda1-oss/rustcasino`).
 8. **`rust.casino` DNS is not yet pointed at Pages.** The site runs on the
    `*.pages.dev` URL for now. Do not assume the apex domain is live; don't touch
    DNS until the explicit cutover.
+9. **Icon/OG image routes must be static files or edge-runtime.** Dynamic image
+   routes fail next-on-pages on Cloudflare ("not configured to run with the Edge
+   Runtime"). Do NOT put `icon.png` / `apple-icon.png` / `opengraph-image.png` in
+   `app/` (Next turns them into dynamic routes). Keep them in `public/` and
+   reference via `metadata.icons` / `metadata.openGraph.images` in
+   `app/layout.tsx`. Verify with `npx @cloudflare/next-on-pages@1`, not just
+   `next build` — the plain build passes while the CF adapter is what fails.
 
 ---
 
