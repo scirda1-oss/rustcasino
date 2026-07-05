@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getReviews, getBlogPosts } from "@/lib/content";
-import { RatingPlate } from "@/components/RatingPlate";
+import { OperatorCard } from "@/components/OperatorCard";
 import { SITE } from "@/lib/site";
 
 export default function Home() {
@@ -27,20 +27,9 @@ export default function Home() {
       {top.length > 0 && (
         <section>
           <h2 className="stencil text-2xl text-bone">Top rated right now</h2>
-          <div className="mt-6 divide-y divide-line border-y border-line">
+          <div className="mt-6 grid gap-4">
             {top.map((r, i) => (
-              <div key={r.slug} className="flex items-center gap-4 py-4">
-                <span className="font-mono text-lg text-ash w-8">{String(i + 1).padStart(2, "0")}</span>
-                <div className="flex-1">
-                  <Link href={`/reviews/${r.slug}`} className="stencil text-lg text-bone hover:text-rust">
-                    {r.site}
-                  </Link>
-                  {r.promoCode && (
-                    <span className="ml-3 font-mono text-xs text-olive">CODE: {r.promoCode}</span>
-                  )}
-                </div>
-                <RatingPlate rating={r.rating} />
-              </div>
+              <OperatorCard key={r.slug} review={r} rank={i + 1} />
             ))}
           </div>
         </section>
