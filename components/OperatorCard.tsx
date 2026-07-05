@@ -38,11 +38,15 @@ export function OperatorCard({ review: r, rank }: { review: Review; rank: number
 
   return (
     <div className="rounded-sm border border-line bg-panel p-4 sm:p-5 transition-colors hover:border-rust/60">
-      <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-        <span className="stencil text-lg text-ash">{String(rank).padStart(2, "0")}</span>
-        {/* Normalized to a uniform max height; aspect ratio preserved (w-auto). */}
-        <img src={`/logos/${logo}`} alt={`${r.site} logo`} height={32} className="h-8 w-auto max-w-[170px] object-contain object-left" />
-        <div className="ml-auto">
+      <div className="flex items-center justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-2 sm:gap-3">
+          <span className="stencil text-base text-ash sm:text-lg">{String(rank).padStart(2, "0")}</span>
+          {/* Uniform max height; aspect ratio preserved (w-auto). */}
+          <img src={`/logos/${logo}`} alt={`${r.site} logo`} height={32} className="h-8 w-auto max-w-[110px] shrink-0 object-contain object-left sm:max-w-[150px]" />
+          {/* Operator NAME always shown as text (some logos are marks without a name). */}
+          <span className="stencil truncate text-base text-bone sm:text-lg">{r.site}</span>
+        </div>
+        <div className="shrink-0">
           <RatingPlate rating={r.rating} />
         </div>
       </div>
