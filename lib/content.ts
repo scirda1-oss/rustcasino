@@ -186,3 +186,34 @@ export function getTrustpilot(slug: string): Trustpilot | undefined {
   const v = trustpilotParsed[slug];
   return v ? { slug, ...v } : undefined;
 }
+
+// --- Filtered-list pages (validated so bad data fails the build) ---
+import filtersData from "@/content/filters.json";
+
+const filterOperatorSchema = z.object({
+  slug: z.string(),
+  card: z.boolean().optional(),
+  note: z.string().optional(),
+  methods: z.string().optional(),
+  issues: z.string().optional(),
+});
+export const filterSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  h1: z.string(),
+  description: z.string(),
+  intro: z.string(),
+  layout: z.enum(["cards", "table"]),
+  operators: z.array(filterOperatorSchema),
+});
+export type FilterOperator = z.output<typeof filterOperatorSchema>;
+export type Filter = z.output<typeof filterSchema>;
+
+const filtersParsed = z.record(filterSchema).parse(filtersData);
+
+export function getFilters(): Filter[] {
+  return Object.values(filtersParsed);
+}
+export function getFilter(slug: string): Filter | undefined {
+  return filtersParsed[slug];
+}

@@ -108,6 +108,11 @@ to `main` (`scirda1-oss/rustcasino`).
 - `/compare` index + `/compare/banditcamp-vs-rustclash` (winner: BanditCamp)
   · `/compare/rustclash-vs-rustypot` (winner: RustClash)
 
+**Filtered lists** (`content/filters.json`, `FilterPage` component, Zod-validated)
+- `/lowest-fee-rust-gambling-sites` (cards, fee/rakeback), `/bitcoin-rust-gambling-sites`
+  (crypto-accepting cards + limited section), `/rust-gambling-withdrawal-guide`
+  (methods/issues table). Article + ItemList JSON-LD; in nav + sitemap.
+
 **Blog / guides** (`content/blog/*.mdx`, in nav as "Guides"; renderer supports
 `##`/`###`, bullet lists, `**bold**`, and internal/external links)
 - `/blog` index + 3 guides (1500+ words each, Article JSON-LD, byline):
@@ -158,9 +163,10 @@ on-page (not needed). See `docs/affiliates.md` for detail.
    (`is-<operator>-legit`) for the remaining/high-demand operators.
 3. **More comparison pages** — additional `X-vs-Y` matchups off the existing
    `compare.json` pattern.
-4. **Filtered lists (deferred)** — `bitcoin-`, `highest-rakeback-`,
-   `fastest-withdrawal-` rust-sites pages. Currently 301'd to the money page;
-   build these out to reclaim those redirects.
+4. ~~**Filtered lists (deferred)**~~ — ✅ shipped:
+   `/lowest-fee-rust-gambling-sites`, `/bitcoin-rust-gambling-sites`,
+   `/rust-gambling-withdrawal-guide`. Old `/highest-rakeback-` and
+   `/fastest-withdrawal-` URLs now 301 to the rebuilt pages.
 5. **Verify RustyPot tracking**, then evaluate joining Howl.gg / RustReaper.
 
 ---

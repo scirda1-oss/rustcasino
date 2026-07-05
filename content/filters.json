@@ -1,0 +1,47 @@
+{
+  "lowest-fee-rust-gambling-sites": {
+    "slug": "lowest-fee-rust-gambling-sites",
+    "title": "Lowest Fee & Best Rakeback Rust Sites 2026",
+    "h1": "Lowest Fee & Best Rakeback Rust Sites",
+    "description": "Which Rust gambling sites keep more of your value — ranked by deposit/withdrawal fees and rakeback depth. RustMagic leads on 0% skin-deposit fees and rakeback.",
+    "intro": "Fees and rakeback decide how much of your deposit actually reaches the games and how much comes back over time. This list ranks the sites we rate by fee advantage, using only their published fee and rakeback terms. RustMagic leads on deposit fees and rakeback depth.",
+    "layout": "cards",
+    "operators": [
+      { "slug": "rustmagic", "card": true, "note": "0% fees on skin deposits, plus instant / daily / weekly / monthly rakeback — keeps the most of your value." },
+      { "slug": "rustclash", "card": true, "note": "Withdrawal fees 2-5% on crypto and 3-10% on skins, offset by daily and weekly rakeback." },
+      { "slug": "rustyloot", "card": true, "note": "Flexible deposits with instant rakeback from Bronze rank upward." },
+      { "slug": "banditcamp", "card": true, "note": "Notably high skin conversion fees versus Steam market value — factor it into deposits." },
+      { "slug": "rustypot", "card": true, "note": "22% jackpot commission — high; weigh it against the no-house-edge coinflip." }
+    ]
+  },
+  "bitcoin-rust-gambling-sites": {
+    "slug": "bitcoin-rust-gambling-sites",
+    "title": "Rust Gambling Sites That Accept Bitcoin & Crypto 2026",
+    "description": "Which Rust gambling sites accept Bitcoin and other crypto for deposits and withdrawals — and which are skin-only. RustMagic, RustClash and RustyLoot support crypto.",
+    "h1": "Rust Gambling Sites That Accept Bitcoin & Crypto",
+    "intro": "If you want to fund or cash out with Bitcoin or other crypto rather than skins, only some Rust sites support it. These accept crypto; note the limitations on the two below them.",
+    "layout": "cards",
+    "operators": [
+      { "slug": "rustmagic", "card": true, "note": "Accepts crypto for deposits and withdrawals, alongside skins, PayPal and gift cards." },
+      { "slug": "rustclash", "card": true, "note": "Crypto supported — in fact withdrawals are crypto-only (no fiat/PayPal)." },
+      { "slug": "rustyloot", "card": true, "note": "Crypto accepted; crypto withdrawals are level-gated by account rank." },
+      { "slug": "banditcamp", "card": false, "note": "Limited crypto support — primarily a skin-based site." },
+      { "slug": "rustypot", "card": false, "note": "No crypto — skin deposits and withdrawals only." }
+    ]
+  },
+  "rust-gambling-withdrawal-guide": {
+    "slug": "rust-gambling-withdrawal-guide",
+    "title": "Rust Gambling Withdrawals: Methods & What to Know 2026",
+    "description": "How withdrawals work on each Rust gambling site — the methods they support and the known issues (KYC triggers, level gates, wagering requirements) from real reviews.",
+    "h1": "Rust Gambling Withdrawals: Methods & What to Know",
+    "intro": "This is not a payout-speed ranking — we don't publish measured payout times we haven't verified. Instead, here is what each site actually supports for withdrawals and the known issues players report, so you know what to expect before you deposit.",
+    "layout": "table",
+    "operators": [
+      { "slug": "rustmagic", "methods": "Crypto + skins", "issues": "KYC triggered on larger withdrawals; some delay complaints." },
+      { "slug": "rustclash", "methods": "Crypto-only (no fiat / PayPal)", "issues": "KYC on $500+ withdrawals; withdrawal fees apply." },
+      { "slug": "rustyloot", "methods": "Skins + crypto (crypto level-gated)", "issues": "Occasional withdrawal-review holds." },
+      { "slug": "banditcamp", "methods": "Skin-only (crypto limited)", "issues": "Must wager deposited balance before withdrawing." },
+      { "slug": "rustypot", "methods": "Skin-only, instant, no trade lock", "issues": "No crypto or fiat options." }
+    ]
+  }
+}

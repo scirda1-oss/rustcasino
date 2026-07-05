@@ -23,10 +23,10 @@ const nextConfig = {
       { source: '/blog/provably-fair-explained', destination: '/blog', permanent: true },
       { source: '/blog/rust-gambling-guide', destination: '/blog', permanent: true },
       { source: '/blog/rust-promo-codes-guide', destination: '/promo', permanent: true },
-      // Programmatic pages not yet rebuilt — point to money page until filtered lists ship (Phase B2)
-      { source: '/bitcoin-rust-gambling-sites', destination: '/best-rust-gambling-sites', permanent: true },
-      { source: '/highest-rakeback-rust-sites', destination: '/best-rust-gambling-sites', permanent: true },
-      { source: '/fastest-withdrawal-rust-sites', destination: '/best-rust-gambling-sites', permanent: true },
+      // Filtered lists now shipped (Phase B2). /bitcoin-rust-gambling-sites is a real page now.
+      // Old rakeback/withdrawal URLs redirect to their rebuilt equivalents.
+      { source: '/highest-rakeback-rust-sites', destination: '/lowest-fee-rust-gambling-sites', permanent: true },
+      { source: '/fastest-withdrawal-rust-sites', destination: '/rust-gambling-withdrawal-guide', permanent: true },
       { source: '/alternatives/rustclash', destination: '/reviews/rustclash', permanent: true },
       // rustchance review existed on old site but has no affiliate deal — redirect to money page
       { source: '/reviews/rustchance', destination: '/best-rust-gambling-sites', permanent: true },

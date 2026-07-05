@@ -9,6 +9,9 @@ const nav = [
   { href: "/rust-skin-gambling", label: "Skin Gambling" },
   { href: "/compare", label: "Compare" },
   { href: "/legit", label: "Legit?" },
+  { href: "/lowest-fee-rust-gambling-sites", label: "Low Fees" },
+  { href: "/bitcoin-rust-gambling-sites", label: "Bitcoin" },
+  { href: "/rust-gambling-withdrawal-guide", label: "Withdrawals" },
   { href: "/blog", label: "Guides" },
   { href: "/how-we-rate", label: "How We Rate" },
 ];
