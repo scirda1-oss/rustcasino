@@ -1,45 +1,7 @@
 import Link from "next/link";
 import { SITE } from "@/lib/site";
 
-const nav = [
-  { href: "/best-rust-gambling-sites", label: "Best Sites" },
-  { href: "/reviews", label: "Reviews" },
-  { href: "/promo", label: "Promo Codes" },
-  { href: "/rust-case-opening-sites", label: "Case Opening" },
-  { href: "/rust-skin-gambling", label: "Skin Gambling" },
-  { href: "/compare", label: "Compare" },
-  { href: "/legit", label: "Legit?" },
-  { href: "/lowest-fee-rust-gambling-sites", label: "Low Fees" },
-  { href: "/bitcoin-rust-gambling-sites", label: "Bitcoin" },
-  { href: "/rust-gambling-withdrawal-guide", label: "Withdrawals" },
-  { href: "/blog", label: "Guides" },
-  { href: "/how-we-rate", label: "How We Rate" },
-];
-
-export function Header() {
-  return (
-    <header className="border-b border-line bg-panel/60 backdrop-blur">
-      <div className="mx-auto flex max-w-content items-center justify-between px-4 py-4">
-        <Link href="/" aria-label="Rust.Casino home" className="flex items-center">
-          <img
-            src="/logos/rust-casino-logo.png"
-            alt="Rust.Casino"
-            width={880}
-            height={567}
-            className="h-10 w-auto md:h-11"
-          />
-        </Link>
-        <nav className="flex gap-6 text-sm">
-          {nav.map((n) => (
-            <Link key={n.href} href={n.href} className="text-ash hover:text-bone transition-colors">
-              {n.label}
-            </Link>
-          ))}
-        </nav>
-      </div>
-    </header>
-  );
-}
+export { Header } from "@/components/Header";
 
 export function Footer() {
   return (
