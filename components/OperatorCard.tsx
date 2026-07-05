@@ -37,8 +37,8 @@ export function OperatorCard({ review: r, rank }: { review: Review; rank: number
   const tp = getTrustpilot(r.slug);
 
   return (
-    <div className="rounded-sm border border-line bg-panel p-5 transition-colors hover:border-rust/60">
-      <div className="flex flex-wrap items-center gap-4">
+    <div className="rounded-sm border border-line bg-panel p-4 sm:p-5 transition-colors hover:border-rust/60">
+      <div className="flex flex-wrap items-center gap-3 sm:gap-4">
         <span className="stencil text-lg text-ash">{String(rank).padStart(2, "0")}</span>
         {/* Normalized to a uniform max height; aspect ratio preserved (w-auto). */}
         <img src={`/logos/${logo}`} alt={`${r.site} logo`} height={32} className="h-8 w-auto max-w-[170px] object-contain object-left" />
@@ -86,13 +86,13 @@ export function OperatorCard({ review: r, rank }: { review: Review; rank: number
         )}
       </div>
 
-      <div className="mt-5 flex flex-wrap gap-3">
+      <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
         <AffiliateLink href={r.url} site={r.site}
-          className="stencil flex-1 min-w-[8rem] rounded-sm border border-rust bg-rust/10 px-4 py-2.5 text-center text-xs text-rust hover:bg-rust hover:text-base transition-colors">
+          className="stencil flex min-h-[44px] items-center justify-center rounded-sm border border-rust bg-rust/10 px-4 text-sm text-rust hover:bg-rust hover:text-base transition-colors">
           CLAIM BONUS
         </AffiliateLink>
         <Link href={`/reviews/${r.slug}`}
-          className="stencil flex-1 min-w-[8rem] rounded-sm border border-line bg-panel2 px-4 py-2.5 text-center text-xs text-ash hover:border-bone hover:text-bone transition-colors">
+          className="stencil flex min-h-[44px] items-center justify-center rounded-sm border border-line bg-panel2 px-4 text-sm text-ash hover:border-bone hover:text-bone transition-colors">
           READ REVIEW
         </Link>
       </div>
