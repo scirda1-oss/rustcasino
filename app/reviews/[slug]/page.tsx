@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -31,6 +33,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
   const r = getReview(slug);
   if (!r) notFound();
   const related = getReviews().filter((x) => r.related.includes(x.slug)).slice(0, 3);
+  // Build-time check (pages are statically prerendered): skip gracefully if no screenshot.
+  const hasScreenshot = fs.existsSync(path.join(process.cwd(), "public", "screenshots", `${r.slug}.png`));
 
   return (
     <article className="space-y-10">
@@ -55,6 +59,16 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
       </header>
 
       <AuthorByline lastTested={r.updated} published={r.published} />
+
+      {hasScreenshot && (
+        <img
+          src={`/screenshots/${r.slug}.png`}
+          alt={`${r.site} screenshot`}
+          width={1917}
+          height={939}
+          className="w-full rounded-sm border border-line"
+        />
+      )}
 
       {r.promoCode && (
         <PromoTab code={r.promoCode} bonus={r.promoBonus} />
