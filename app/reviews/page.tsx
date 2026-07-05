@@ -1,7 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { getReviews } from "@/lib/content";
-import { RatingPlate } from "@/components/RatingPlate";
+import { OperatorCard } from "@/components/OperatorCard";
 
 export const metadata: Metadata = {
   title: "Rust Gambling Site Reviews",
@@ -14,14 +13,14 @@ export default function ReviewsIndex() {
   return (
     <div className="space-y-6">
       <h1 className="stencil text-4xl text-bone">Reviews</h1>
-      <div className="divide-y divide-line border-y border-line">
-        {reviews.map((r) => (
-          <div key={r.slug} className="flex items-center gap-4 py-4">
-            <Link href={`/reviews/${r.slug}`} className="stencil flex-1 text-lg text-bone hover:text-rust">
-              {r.site}
-            </Link>
-            <RatingPlate rating={r.rating} />
-          </div>
+      <p className="max-w-2xl text-ash">
+        Every site tested hands-on and rated on payout reliability, bonuses, games and community
+        trust. Ratings blend our testing with Trustpilot sentiment — see{" "}
+        <a href="/how-we-rate" className="text-olive hover:text-bone">how we rate</a>.
+      </p>
+      <div className="grid gap-4">
+        {reviews.map((r, i) => (
+          <OperatorCard key={r.slug} review={r} rank={i + 1} />
         ))}
       </div>
     </div>

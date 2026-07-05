@@ -43,9 +43,11 @@ to `main` (`scirda1-oss/rustcasino`).
 ## What's built (verified against the repo)
 
 **Core / money**
-- `/` — homepage
+- `/` — homepage; top-rated list uses the rich `OperatorCard`
 - `/best-rust-gambling-sites` — primary money page; uses the rich
-  `OperatorCard` (logo + RatingPlate + offer + game tags + payment icons +
+  `OperatorCard`
+- `/reviews` and `/promo` indexes also render `OperatorCard` (logo, rating,
+  offer, tags, payment icons, promo code, Trustpilot badge, dual CTA) (logo + RatingPlate + offer + game tags + payment icons +
   promo code + dual CTA Claim Bonus / Read Review)
 - `/rust-skin-gambling` — informational hub (what it is / how it works / game
   types / safety & legality) funnelling to money page + reviews; Article +
