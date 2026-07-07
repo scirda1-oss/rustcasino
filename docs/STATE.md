@@ -34,9 +34,10 @@ to `main` (`scirda1-oss/rustcasino`).
    deploy. A red build must never reach `main`.
 7. **`nodejs_compat` is set** in the Cloudflare Pages project. Already
    configured — do not remove or toggle it.
-8. **`rust.casino` DNS is not yet pointed at Pages.** The site runs on the
-   `*.pages.dev` URL for now. Do not assume the apex domain is live; don't touch
-   DNS until the explicit cutover.
+8. **`rust.casino` is LIVE on Cloudflare Pages and indexed in Google (since ~Jul
+   2026).** DNS is pointed at Pages; the apex domain serves the site. Don't
+   change DNS without an explicit reason. (Historical note: earlier this was a
+   pre-cutover placeholder telling contributors the domain wasn't live yet.)
 9. **Icon/OG image routes must be static files or edge-runtime.** Dynamic image
    routes fail next-on-pages on Cloudflare ("not configured to run with the Edge
    Runtime"). Do NOT put `icon.png` / `apple-icon.png` / `opengraph-image.png` in
