@@ -23,6 +23,8 @@ const nextConfig = {
       { source: '/blog/provably-fair-explained', destination: '/blog/how-to-verify-provably-fair', permanent: true },
       { source: '/blog/rust-gambling-guide', destination: '/blog/how-rust-skin-gambling-works', permanent: true },
       { source: '/blog/rust-promo-codes-guide', destination: '/promo', permanent: true },
+      // Stale legacy promo URL (crawled, 404) -> the operator's promo page
+      { source: '/blog/rustclash-promo-code-2', destination: '/promo/rustclash', permanent: true },
       // Filtered lists now shipped (Phase B2). /bitcoin-rust-gambling-sites is a real page now.
       // Old rakeback/withdrawal URLs redirect to their rebuilt equivalents.
       { source: '/highest-rakeback-rust-sites', destination: '/lowest-fee-rust-gambling-sites', permanent: true },
