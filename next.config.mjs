@@ -15,13 +15,13 @@ const nextConfig = {
       { source: '/promocodes', destination: '/promo', permanent: true },
       { source: '/guides', destination: '/blog', permanent: true },
       // Old guides — low search demand (Ahrefs 0-10 vol), consolidate rather than rebuild
-      { source: '/guides/how-to-withdraw', destination: '/blog', permanent: true },
+      { source: '/guides/how-to-withdraw', destination: '/rust-gambling-withdrawal-guide', permanent: true },
       { source: '/guides/best-games-beginners', destination: '/blog', permanent: true },
       { source: '/guides/no-kyc-rust-gambling', destination: '/blog', permanent: true },
-      { source: '/guides/verify-provably-fair', destination: '/blog', permanent: true },
+      { source: '/guides/verify-provably-fair', destination: '/blog/how-to-verify-provably-fair', permanent: true },
       // Old blog posts — consolidate to blog index
-      { source: '/blog/provably-fair-explained', destination: '/blog', permanent: true },
-      { source: '/blog/rust-gambling-guide', destination: '/blog', permanent: true },
+      { source: '/blog/provably-fair-explained', destination: '/blog/how-to-verify-provably-fair', permanent: true },
+      { source: '/blog/rust-gambling-guide', destination: '/blog/how-rust-skin-gambling-works', permanent: true },
       { source: '/blog/rust-promo-codes-guide', destination: '/promo', permanent: true },
       // Filtered lists now shipped (Phase B2). /bitcoin-rust-gambling-sites is a real page now.
       // Old rakeback/withdrawal URLs redirect to their rebuilt equivalents.
