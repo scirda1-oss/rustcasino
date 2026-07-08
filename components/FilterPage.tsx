@@ -1,12 +1,22 @@
 import Link from "next/link";
-import { getFilter, getReview } from "@/lib/content";
+import { getFilter, getFilters, getReview } from "@/lib/content";
 import { OperatorCard } from "@/components/OperatorCard";
+import { RelatedLinks, type RelatedLink } from "@/components/RelatedLinks";
 import { JsonLd, itemListLd, breadcrumbLd, authorLd } from "@/lib/schema";
 import { SITE, absUrl } from "@/lib/site";
 
 export function FilterPage({ slug }: { slug: string }) {
   const f = getFilter(slug);
   if (!f) return null;
+
+  const related: RelatedLink[] = [
+    ...getFilters()
+      .filter((x) => x.slug !== f.slug)
+      .map((x) => ({ href: `/${x.slug}`, label: x.h1, note: x.description })),
+    { href: "/best-rust-gambling-sites", label: "Best Rust gambling sites", note: "Our full ranked list." },
+    { href: "/reviews", label: "All reviews", note: "Every site rated in depth." },
+    { href: "/legit", label: "Legit checks", note: "Is each site safe?" },
+  ];
 
   const cardOps = f.operators.filter((o) => o.card !== false);
   const cardReviews = cardOps.map((o) => getReview(o.slug)).filter(Boolean);
@@ -111,6 +121,8 @@ export function FilterPage({ slug }: { slug: string }) {
           </ul>
         </section>
       )}
+
+      <RelatedLinks title="More Rust gambling guides" links={related} />
 
       <nav className="flex flex-wrap gap-4 border-t border-line pt-6 text-sm">
         <Link href="/best-rust-gambling-sites" className="text-rust hover:text-rust2">All Rust gambling sites →</Link>

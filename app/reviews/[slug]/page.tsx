@@ -3,7 +3,8 @@ import path from "node:path";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import type { Metadata } from "next";
-import { getReviews, getReview } from "@/lib/content";
+import { getReviews, getReview, getLegitChecks } from "@/lib/content";
+import { RelatedLinks, type RelatedLink } from "@/components/RelatedLinks";
 import { RatingPlate } from "@/components/RatingPlate";
 import { PromoTab } from "@/components/PromoTab";
 import { AuthorByline } from "@/components/AuthorByline";
@@ -35,6 +36,17 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
   const related = getReviews().filter((x) => r.related.includes(x.slug)).slice(0, 3);
   // Build-time check (pages are statically prerendered): skip gracefully if no screenshot.
   const hasScreenshot = fs.existsSync(path.join(process.cwd(), "public", "screenshots", `${r.slug}.png`));
+
+  const legitCheck = getLegitChecks().find((x) => x.reviewSlug === r.slug);
+  const acceptsCrypto = r.deposits.some((d) => /crypto|bitcoin|btc|eth/i.test(d));
+  const crossLinks: RelatedLink[] = [
+    ...(legitCheck ? [{ href: `/${legitCheck.slug}`, label: `Is ${r.site} legit?`, note: "Our safety verdict." }] : []),
+    ...(r.promoCode ? [{ href: `/promo/${r.slug}`, label: `${r.site} promo code`, note: `Claim with code ${r.promoCode}.` }] : []),
+    { href: "/rust-gambling-withdrawal-guide", label: "Withdrawals: methods & issues" },
+    { href: "/lowest-fee-rust-gambling-sites", label: "Lowest-fee & rakeback sites" },
+    ...(acceptsCrypto ? [{ href: "/bitcoin-rust-gambling-sites", label: "Sites that accept Bitcoin" }] : []),
+    { href: "/best-rust-gambling-sites", label: "Best Rust gambling sites" },
+  ];
 
   return (
     <article className="space-y-10">
@@ -117,6 +129,8 @@ export default async function ReviewPage({ params }: { params: Promise<{ slug: s
           See how we rate →
         </Link>
       </nav>
+
+      <RelatedLinks title="Explore more" links={crossLinks} />
 
       {related.length > 0 && (
         <section>

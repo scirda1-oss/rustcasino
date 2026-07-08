@@ -1,13 +1,21 @@
 import Link from "next/link";
-import { getMode, reviewsForMode } from "@/lib/content";
+import { getMode, getModes, reviewsForMode } from "@/lib/content";
 import { OperatorCard } from "@/components/OperatorCard";
 import { WheelCalculator } from "@/components/WheelCalculator";
+import { RelatedLinks, type RelatedLink } from "@/components/RelatedLinks";
 import { JsonLd, itemListLd, breadcrumbLd } from "@/lib/schema";
 
 export function ModePage({ slug }: { slug: string }) {
   const m = getMode(slug);
   if (!m) return null;
   const reviews = reviewsForMode(m);
+  const otherModes = getModes().filter((x) => x.slug !== m.slug).slice(0, 3);
+  const related: RelatedLink[] = [
+    { href: "/best-rust-gambling-sites", label: "Best Rust gambling sites", note: "Our full ranked list." },
+    ...otherModes.map((x) => ({ href: `/${x.slug}`, label: x.h1, note: x.title })),
+    { href: "/lowest-fee-rust-gambling-sites", label: "Lowest-fee & rakeback sites" },
+    { href: "/legit", label: "Legit checks", note: "Is each site safe?" },
+  ];
   return (
     <div className="space-y-12">
       <JsonLd data={itemListLd(reviews)} />
@@ -40,6 +48,7 @@ export function ModePage({ slug }: { slug: string }) {
           <WheelCalculator />
         </section>
       )}
+      <RelatedLinks title="Related Rust gambling pages" links={related} />
       <nav className="flex flex-wrap gap-4 border-t border-line pt-6 text-sm">
         <Link href="/best-rust-gambling-sites" className="text-rust hover:text-rust2">All Rust gambling sites →</Link>
         <Link href="/promo" className="text-ash hover:text-bone">Promo codes →</Link>
