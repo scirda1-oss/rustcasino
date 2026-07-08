@@ -115,6 +115,7 @@ export type GameMode = {
   intro: string;
   sectionTitle: string;
   sectionBody: string;
+  faq?: { q: string; a: string }[];
 };
 
 export function getModes(): GameMode[] {
@@ -205,6 +206,7 @@ export const filterSchema = z.object({
   intro: z.string(),
   layout: z.enum(["cards", "table"]),
   operators: z.array(filterOperatorSchema),
+  faq: z.array(z.object({ q: z.string(), a: z.string() })).default([]),
 });
 export type FilterOperator = z.output<typeof filterOperatorSchema>;
 export type Filter = z.output<typeof filterSchema>;

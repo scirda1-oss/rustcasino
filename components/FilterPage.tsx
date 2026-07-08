@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getFilter, getFilters, getReview } from "@/lib/content";
 import { OperatorCard } from "@/components/OperatorCard";
 import { RelatedLinks, type RelatedLink } from "@/components/RelatedLinks";
-import { JsonLd, itemListLd, breadcrumbLd, authorLd } from "@/lib/schema";
+import { JsonLd, itemListLd, breadcrumbLd, authorLd, faqLd } from "@/lib/schema";
 import { SITE, absUrl } from "@/lib/site";
 
 export function FilterPage({ slug }: { slug: string }) {
@@ -36,6 +36,7 @@ export function FilterPage({ slug }: { slug: string }) {
     <div className="space-y-10">
       <JsonLd data={articleLd} />
       {cardReviews.length > 0 && <JsonLd data={itemListLd(cardReviews as never)} />}
+      {f.faq.length > 0 && <JsonLd data={faqLd(f.faq)} />}
       <JsonLd data={breadcrumbLd([
         { name: "Home", path: "/" },
         { name: f.h1, path: `/${f.slug}` },
@@ -119,6 +120,20 @@ export function FilterPage({ slug }: { slug: string }) {
               );
             })}
           </ul>
+        </section>
+      )}
+
+      {f.faq.length > 0 && (
+        <section>
+          <h2 className="stencil text-2xl text-bone">FAQ</h2>
+          <div className="mt-4 space-y-4">
+            {f.faq.map((item, i) => (
+              <div key={i} className="border-b border-line pb-4">
+                <h3 className="font-semibold text-bone">{item.q}</h3>
+                <p className="mt-1 text-sm text-ash">{item.a}</p>
+              </div>
+            ))}
+          </div>
         </section>
       )}
 

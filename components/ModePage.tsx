@@ -3,7 +3,7 @@ import { getMode, getModes, reviewsForMode } from "@/lib/content";
 import { OperatorCard } from "@/components/OperatorCard";
 import { WheelCalculator } from "@/components/WheelCalculator";
 import { RelatedLinks, type RelatedLink } from "@/components/RelatedLinks";
-import { JsonLd, itemListLd, breadcrumbLd } from "@/lib/schema";
+import { JsonLd, itemListLd, breadcrumbLd, faqLd } from "@/lib/schema";
 
 export function ModePage({ slug }: { slug: string }) {
   const m = getMode(slug);
@@ -19,6 +19,7 @@ export function ModePage({ slug }: { slug: string }) {
   return (
     <div className="space-y-12">
       <JsonLd data={itemListLd(reviews)} />
+      {m.faq && m.faq.length > 0 && <JsonLd data={faqLd(m.faq)} />}
       <JsonLd data={breadcrumbLd([
         { name: "Home", path: "/" },
         { name: m.h1, path: `/${m.slug}` },
@@ -48,6 +49,20 @@ export function ModePage({ slug }: { slug: string }) {
           <WheelCalculator />
         </section>
       )}
+      {m.faq && m.faq.length > 0 && (
+        <section>
+          <h2 className="stencil text-2xl text-bone">FAQ</h2>
+          <div className="mt-4 space-y-4">
+            {m.faq.map((f, i) => (
+              <div key={i} className="border-b border-line pb-4">
+                <h3 className="font-semibold text-bone">{f.q}</h3>
+                <p className="mt-1 text-sm text-ash">{f.a}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       <RelatedLinks title="Related Rust gambling pages" links={related} />
       <nav className="flex flex-wrap gap-4 border-t border-line pt-6 text-sm">
         <Link href="/best-rust-gambling-sites" className="text-rust hover:text-rust2">All Rust gambling sites →</Link>

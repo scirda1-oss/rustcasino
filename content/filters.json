@@ -12,6 +12,11 @@
       { "slug": "rustyloot", "card": true, "note": "Flexible deposits with instant rakeback from Bronze rank upward." },
       { "slug": "banditcamp", "card": true, "note": "Notably high skin conversion fees versus Steam market value — factor it into deposits." },
       { "slug": "rustypot", "card": true, "note": "22% jackpot commission — high; weigh it against the no-house-edge coinflip." }
+    ],
+    "faq": [
+      { "q": "Which Rust gambling site has the lowest fees?", "a": "RustMagic charges 0% on skin deposits and adds instant, daily, weekly and monthly rakeback on top, so it keeps the most of your value of the sites we rate." },
+      { "q": "What is rakeback on Rust gambling sites?", "a": "Rakeback returns a small percentage of the house edge you generate back to you over time, usually as claimable rewards on a set schedule. Deeper, more frequent rakeback (instant/daily/weekly/monthly) is worth more than a one-off sign-up bonus." },
+      { "q": "Do Rust gambling sites charge withdrawal fees?", "a": "Some do. RustClash applies 2-5% on crypto and 3-10% on skin withdrawals, and RustyPot takes a 22% commission on jackpot. Fees change, so always check a site's current terms before you deposit." }
     ]
   },
   "bitcoin-rust-gambling-sites": {
@@ -27,6 +32,11 @@
       { "slug": "rustyloot", "card": true, "note": "Crypto accepted; crypto withdrawals are level-gated by account rank." },
       { "slug": "banditcamp", "card": false, "note": "Limited crypto support — primarily a skin-based site." },
       { "slug": "rustypot", "card": false, "note": "No crypto — skin deposits and withdrawals only." }
+    ],
+    "faq": [
+      { "q": "Which Rust gambling sites accept Bitcoin?", "a": "RustMagic, RustClash and RustyLoot all support crypto. RustMagic takes crypto alongside skins, PayPal and gift cards; RustClash is crypto-only for withdrawals; RustyLoot accepts crypto with level-gated crypto withdrawals." },
+      { "q": "Can I withdraw in Bitcoin on Rust sites?", "a": "On the crypto-supporting sites, yes. RustClash cashes out in crypto (its withdrawals are crypto-only), and RustyLoot allows crypto withdrawals once your account reaches the required rank. RustMagic supports crypto withdrawals too." },
+      { "q": "Do all Rust gambling sites take crypto?", "a": "No. BanditCamp has only limited crypto support and is primarily skin-based, and RustyPot is skin-only with no crypto or fiat. If crypto matters to you, stick to the three sites listed above." }
     ]
   },
   "rust-gambling-withdrawal-guide": {
@@ -42,6 +52,11 @@
       { "slug": "rustyloot", "methods": "Skins + crypto (crypto level-gated)", "issues": "Occasional withdrawal-review holds." },
       { "slug": "banditcamp", "methods": "Skin-only (crypto limited)", "issues": "Must wager deposited balance before withdrawing." },
       { "slug": "rustypot", "methods": "Skin-only, instant, no trade lock", "issues": "No crypto or fiat options." }
+    ],
+    "faq": [
+      { "q": "How long do Rust gambling withdrawals take?", "a": "It varies by site and method, and we do not publish measured times we have not verified. Skin withdrawals are typically fast because Rust skins have no trade lock, while crypto or larger withdrawals can be delayed by KYC checks. RustyPot, for example, advertises instant skin payouts." },
+      { "q": "Do I need KYC to withdraw from Rust gambling sites?", "a": "Often, for larger amounts. RustClash triggers KYC on withdrawals of $500 and above, and RustMagic reports KYC on larger withdrawals. Complete verification early if you plan to cash out a big balance." },
+      { "q": "Can I withdraw Rust skins instantly?", "a": "On skin-based sites, usually yes — Rust skins have no trade lock, so once a withdrawal is approved the trade is near-instant. RustyPot offers instant, no-trade-lock skin payouts; other sites depend on their review and KYC steps." }
     ]
   }
 }
