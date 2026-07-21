@@ -30,6 +30,9 @@ export const metadata: Metadata = {
   },
   twitter: { card: "summary_large_image", images: ["/opengraph-image.png"] },
   robots: { index: true, follow: true },
+  verification: {
+    other: { "ahrefs-site-verification": "c2975ddc2a8e2b2a5bcc7b66fb1cc190bce7e79d719cdf0b7ae2e5baeff9fb4b" },
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
