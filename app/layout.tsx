@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Oswald, Inter, JetBrains_Mono } from "next/font/google";
 import { SITE } from "@/lib/site";
 import { Header, Footer } from "@/components/Layout";
@@ -40,6 +41,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main className="mx-auto max-w-content px-4 py-10">{children}</main>
         <Footer />
+
+        {/* Google tag (gtag.js) — GA4 */}
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-G0HKQ6ZLEN" strategy="afterInteractive" />
+        <Script id="ga4" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-G0HKQ6ZLEN');`}
+        </Script>
       </body>
     </html>
   );
