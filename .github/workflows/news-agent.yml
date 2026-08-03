@@ -1,0 +1,63 @@
+name: News agent
+
+on:
+  schedule:
+    - cron: "0 14 * * 1,4"   # Mon & Thu 14:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: news-agent
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install site dependencies
+        run: npm ci
+
+      - name: Install Anthropic SDK (not a site dependency)
+        run: npm install --no-save @anthropic-ai/sdk
+
+      - name: Generate article
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          NEWS_SUBREDDITS: playrust,RustConsole
+        run: node scripts/generate-news.mjs
+
+      - name: Check for a new article
+        id: diff
+        run: |
+          if [ -n "$(git status --porcelain content/news)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new article this run — nothing to publish."
+          fi
+
+      - name: Validate build
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "rustcasino-news-bot"
+          git config user.email "actions@github.com"
+          git add content/news
+          title=$(git diff --cached --name-only content/news | head -1 | sed 's#.*/##; s#\.mdx$##')
+          git commit -m "news: add ${title}"
+          git push origin HEAD:main
