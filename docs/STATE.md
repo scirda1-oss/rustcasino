@@ -119,6 +119,26 @@ to `main` (`scirda1-oss/rustcasino`).
 - `/blog` index + 3 guides (1500+ words each, Article JSON-LD, byline):
   `how-rust-skin-gambling-works`, `how-to-verify-provably-fair`,
   `rust-gambling-scam-avoidance`
+- Renderer is shared: `inline()` / `renderBody()` live in `components/prose.tsx`
+  (blog + news both import it). Don't re-inline it per page.
+
+**News** (`content/news/*.mdx`, Zod `newsSchema`, in nav as "News")
+- `/news` index (date + category cards) + `/news/[slug]` detail (NewsArticle +
+  breadcrumb JSON-LD, author byline, "trend signal" attribution, related links).
+- `getNews()` / `getNewsItem()` in `lib/content.ts`, sorted newest-first; wired
+  into `sitemap.ts` (static `/news` + dynamic per-article).
+- Seed article `rust-skin-gambling-trends-2026` (evergreen, verified-facts-only).
+- **News agent (auto-publish):** `scripts/generate-news.mjs` +
+  `.github/workflows/news-agent.yml`. Cron Mon/Thu 14:00 UTC (+ manual dispatch).
+  Flow: Apify Reddit trendwatch (post **titles only** as a topic signal — never
+  republishes Reddit content) → Claude `claude-opus-5` writes ONE original
+  article → writes `content/news/*.mdx`. **Guardrail:** the workflow runs
+  `next build` and only commits/pushes to `main` if the build passes, so bad
+  content can't ship. Requires repo secrets `ANTHROPIC_API_KEY` (required) and
+  `APIFY_TOKEN` (optional — without it the writer uses evergreen angles).
+  Writer is constrained to original prose + verified/durable facts only.
+  NOTE: the workflow file must be added by an account/token with GitHub
+  `workflow` scope (the shared PAT lacks it).
 
 **Static / trust**
 - `/about` · `/contact` · `/privacy` · `/responsible-gambling`
