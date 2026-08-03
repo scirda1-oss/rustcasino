@@ -129,7 +129,9 @@ to `main` (`scirda1-oss/rustcasino`).
   into `sitemap.ts` (static `/news` + dynamic per-article).
 - Seed article `rust-skin-gambling-trends-2026` (evergreen, verified-facts-only).
 - **News agent (auto-publish):** `scripts/generate-news.mjs` +
-  `.github/workflows/news-agent.yml`. Cron Mon/Thu 14:00 UTC (+ manual dispatch).
+  the workflow (staged at `docs/news-agent.workflow.yml` — **move it to
+  `.github/workflows/news-agent.yml` to activate**; it's parked in docs/ because
+  the push token lacks GitHub `workflow` scope). Cron Mon/Thu 14:00 UTC (+ manual dispatch).
   Flow: Apify Reddit trendwatch (post **titles only** as a topic signal — never
   republishes Reddit content) → Claude `claude-opus-5` writes ONE original
   article → writes `content/news/*.mdx`. **Guardrail:** the workflow runs

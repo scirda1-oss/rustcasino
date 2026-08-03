@@ -1,0 +1,90 @@
+# ============================================================================
+# ACTION REQUIRED: move this file to  .github/workflows/news-agent.yml
+#
+# It lives in docs/ only because the automation token used to push this repo
+# lacks GitHub "workflow" scope, so files under .github/workflows/ can't be
+# pushed via the API. To activate the news agent:
+#
+#   Option A (UI):  GitHub → Add file → Create new file →
+#                   path ".github/workflows/news-agent.yml" → paste this content
+#                   (drop these header comment lines) → commit to main.
+#   Option B (git): grant the token "workflow" scope, then
+#                   git mv docs/news-agent.workflow.yml .github/workflows/news-agent.yml
+#                   and push.
+#
+# Then add repo secrets (Settings → Secrets and variables → Actions):
+#   ANTHROPIC_API_KEY  (required)   ·   APIFY_TOKEN  (optional)
+# ============================================================================
+
+name: News agent
+
+# Trendwatcher + writer. Generates one original Rust-gambling news article,
+# validates it with `next build`, and only then commits to main. If the build
+# fails, the job stops before the commit step, so broken content never ships.
+
+on:
+  schedule:
+    # Twice a week, Mon & Thu 14:00 UTC. Modest cadence on purpose — a new
+    # domain publishing a firehose of AI content reads as spam to search engines.
+    - cron: "0 14 * * 1,4"
+  workflow_dispatch: {} # allow manual runs from the Actions tab
+
+# Let the built-in token push the new article back to main.
+permissions:
+  contents: write
+
+concurrency:
+  group: news-agent
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install site dependencies
+        run: npm ci
+
+      - name: Install Anthropic SDK (not a site dependency)
+        run: npm install --no-save @anthropic-ai/sdk
+
+      - name: Generate article
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          NEWS_SUBREDDITS: playrust,RustConsole
+        run: node scripts/generate-news.mjs
+
+      - name: Check for a new article
+        id: diff
+        run: |
+          if [ -n "$(git status --porcelain content/news)" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No new article this run — nothing to publish."
+          fi
+
+      # GUARDRAIL: build must pass. If it fails the job stops here and the
+      # commit step below never runs, so bad content cannot reach production.
+      - name: Validate build
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "rustcasino-news-bot"
+          git config user.email "actions@github.com"
+          git add content/news
+          title=$(git diff --cached --name-only content/news | head -1 | sed 's#.*/##; s#\.mdx$##')
+          git commit -m "news: add ${title}"
+          git push origin HEAD:main
