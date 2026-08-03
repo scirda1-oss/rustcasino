@@ -1,5 +1,5 @@
 import { SITE, absUrl, AUTHOR } from "./site";
-import type { Review, Promo, BlogPost } from "./content";
+import type { Review, Promo, BlogPost, NewsItem } from "./content";
 
 // Person schema for the site editor (E-E-A-T author signal).
 export function authorLd() {
@@ -100,6 +100,25 @@ export function articleLd(post: BlogPost) {
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.domain },
     datePublished: post.published,
     dateModified: post.updated,
+  };
+}
+
+export function newsArticleLd(item: NewsItem) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: item.title,
+    description: item.description,
+    author: authorLd(),
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.domain,
+      logo: { "@type": "ImageObject", url: absUrl("/icon.png") },
+    },
+    datePublished: item.published,
+    dateModified: item.updated,
+    mainEntityOfPage: absUrl(`/news/${item.slug}`),
   };
 }
 

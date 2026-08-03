@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
-import { getReviews, getPromos, getBlogPosts, getModes, getLegitChecks, getComparisons } from "@/lib/content";
+import { getReviews, getPromos, getBlogPosts, getModes, getLegitChecks, getComparisons, getNews } from "@/lib/content";
 import { SITE } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const stat = ["", "/best-rust-gambling-sites", "/rust-skin-gambling", "/reviews", "/promo", "/legit",
     "/lowest-fee-rust-gambling-sites", "/bitcoin-rust-gambling-sites", "/rust-gambling-withdrawal-guide",
-    "/how-we-rate", "/authors", "/blog", "/about", "/responsible-gambling", "/contact", "/privacy"]
+    "/how-we-rate", "/authors", "/blog", "/news", "/about", "/responsible-gambling", "/contact", "/privacy"]
     .map((p) => ({ url: `${SITE.domain}${p}`, lastModified: now }));
   const reviews = getReviews().map((r) => ({
     url: `${SITE.domain}/reviews/${r.slug}`, lastModified: new Date(r.updated),
@@ -17,9 +17,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getBlogPosts().map((p) => ({
     url: `${SITE.domain}/blog/${p.slug}`, lastModified: new Date(p.updated),
   }));
+  const news = getNews().map((n) => ({
+    url: `${SITE.domain}/news/${n.slug}`, lastModified: new Date(n.updated),
+  }));
   const modes = getModes().map((m) => ({ url: `${SITE.domain}/${m.slug}`, lastModified: now }));
   const legit = getLegitChecks().map((l) => ({ url: `${SITE.domain}/${l.slug}`, lastModified: now }));
   const compare = [{ url: `${SITE.domain}/compare`, lastModified: now },
     ...getComparisons().map((c) => ({ url: `${SITE.domain}/compare/${c.slug}`, lastModified: now }))];
-  return [...stat, ...modes, ...legit, ...compare, ...reviews, ...promos, ...posts];
+  return [...stat, ...modes, ...legit, ...compare, ...reviews, ...promos, ...posts, ...news];
 }

@@ -13,6 +13,7 @@ const nav = [
   { href: "/lowest-fee-rust-gambling-sites", label: "Low Fees" },
   { href: "/bitcoin-rust-gambling-sites", label: "Bitcoin" },
   { href: "/rust-gambling-withdrawal-guide", label: "Withdrawals" },
+  { href: "/news", label: "News" },
   { href: "/blog", label: "Guides" },
   { href: "/how-we-rate", label: "How We Rate" },
 ];

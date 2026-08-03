@@ -56,9 +56,25 @@ export const blogSchema = z.object({
   related: z.array(z.string()).default([]),
 });
 
+// News articles: same MDX pipeline as blog, but sorted by date and rendered
+// as NewsArticle. Seeded by editors and appended by the news agent (which must
+// only commit if `next build` passes — malformed frontmatter fails here loudly).
+export const newsSchema = z.object({
+  slug: z.string(),
+  title: z.string(),
+  description: z.string(),
+  category: z.string().default("News"),
+  author: z.string().default("Rust.Casino Team"),
+  updated: z.string(),
+  published: z.string(),
+  related: z.array(z.string()).default([]),
+  sources: z.array(z.string()).default([]),
+});
+
 export type Review = z.output<typeof reviewSchema> & { body: string };
 export type Promo = z.output<typeof promoSchema> & { body: string };
 export type BlogPost = z.output<typeof blogSchema> & { body: string };
+export type NewsItem = z.output<typeof newsSchema> & { body: string };
 
 function readCollection<S extends z.ZodTypeAny>(
   dir: string,
@@ -99,6 +115,14 @@ export function getPromo(slug: string) {
 }
 export function getBlogPost(slug: string) {
   return getBlogPosts().find((p) => p.slug === slug);
+}
+export function getNews(): NewsItem[] {
+  return readCollection("news", newsSchema).sort(
+    (a, b) => +new Date(b.published) - +new Date(a.published)
+  );
+}
+export function getNewsItem(slug: string) {
+  return getNews().find((n) => n.slug === slug);
 }
 
 // --- Game-mode pages (SEO: target low-KD commercial mode terms) ---
