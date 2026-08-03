@@ -128,19 +128,19 @@ to `main` (`scirda1-oss/rustcasino`).
 - `getNews()` / `getNewsItem()` in `lib/content.ts`, sorted newest-first; wired
   into `sitemap.ts` (static `/news` + dynamic per-article).
 - Seed article `rust-skin-gambling-trends-2026` (evergreen, verified-facts-only).
-- **News agent (auto-publish):** `scripts/generate-news.mjs` +
-  the workflow (staged at `docs/news-agent.workflow.yml` — **move it to
-  `.github/workflows/news-agent.yml` to activate**; it's parked in docs/ because
-  the push token lacks GitHub `workflow` scope). Cron Mon/Thu 14:00 UTC (+ manual dispatch).
-  Flow: Apify Reddit trendwatch (post **titles only** as a topic signal — never
-  republishes Reddit content) → Claude `claude-opus-5` writes ONE original
-  article → writes `content/news/*.mdx`. **Guardrail:** the workflow runs
-  `next build` and only commits/pushes to `main` if the build passes, so bad
-  content can't ship. Requires repo secrets `ANTHROPIC_API_KEY` (required) and
-  `APIFY_TOKEN` (optional — without it the writer uses evergreen angles).
-  Writer is constrained to original prose + verified/durable facts only.
-  NOTE: the workflow file must be added by an account/token with GitHub
-  `workflow` scope (the shared PAT lacks it).
+- **News agent (auto-publish) — LIVE as a scheduled Claude Code Routine, NOT a
+  GitHub Action.** The user does not use the Anthropic API, so the API/Action
+  path was dropped. A self-binding Routine (`trig_01H68NyV24WkBLJk7voRJGdr`,
+  cron `0 15 * * 1,4` = Mon & Thu 15:00 UTC) pings this session to: research Rust
+  trends with web tools (Tavily/WebSearch — topic signal only, never republishes
+  others' content) → write ONE original ~600-word `content/news/*.mdx` (verified/
+  durable facts only, responsible-gambling framing) → run `next build` → only
+  commit/push to `main` if it passes. To change cadence or pause, update/delete
+  that trigger. Manual proof-run shipped `rust-in-game-wheel-vs-skin-gambling-sites`.
+- **Obsolete (do not revive):** `scripts/generate-news.mjs`, `.npmrc`
+  (legacy-peer-deps, harmless — left in place), and the GitHub Action
+  `.github/workflows/news-agent.yml` (was API-based; **disabled** by the user).
+  Kept in-repo only as reference; the Routine above is the real agent.
 
 **Static / trust**
 - `/about` · `/contact` · `/privacy` · `/responsible-gambling`
