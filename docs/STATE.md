@@ -131,16 +131,37 @@ to `main` (`scirda1-oss/rustcasino`).
 - **News agent (auto-publish) — LIVE as a scheduled Claude Code Routine, NOT a
   GitHub Action.** The user does not use the Anthropic API, so the API/Action
   path was dropped. A self-binding Routine (`trig_01H68NyV24WkBLJk7voRJGdr`,
-  cron `0 15 * * 1,4` = Mon & Thu 15:00 UTC) pings this session to: research Rust
+  cron `0 15 * * *` = **DAILY 15:00 UTC**) pings this session to: research Rust
   trends with web tools (Tavily/WebSearch — topic signal only, never republishes
   others' content) → write ONE original ~600-word `content/news/*.mdx` (verified/
-  durable facts only, responsible-gambling framing) → run `next build` → only
-  commit/push to `main` if it passes. To change cadence or pause, update/delete
-  that trigger. Manual proof-run shipped `rust-in-game-wheel-vs-skin-gambling-sites`.
+  durable facts only, responsible-gambling framing, distinct topic vs existing
+  files) → run `next build` → only commit/push to `main` if it passes. To change
+  cadence or pause, update/delete that trigger.
+- Published so far: `rust-skin-gambling-trends-2026` (seed),
+  `rust-in-game-wheel-vs-skin-gambling-sites`, `kyc-on-rust-gambling-sites-explained`,
+  `rust-gambling-bonus-wagering-requirements`, `house-edge-on-rust-gambling-explained`.
 - **Obsolete (do not revive):** `scripts/generate-news.mjs`, `.npmrc`
   (legacy-peer-deps, harmless — left in place), and the GitHub Action
   `.github/workflows/news-agent.yml` (was API-based; **disabled** by the user).
   Kept in-repo only as reference; the Routine above is the real agent.
+
+### PUSH / DEPLOY — the working setup (do not forget)
+
+10. **How to push to `main` from this session** (Cloudflare auto-deploys on push):
+    the session's default git remote (relay `127.0.0.1`) is **read-only** and 403s
+    on push. Push via the **PAT embedded in the remote URL**, then restore the relay:
+    ```
+    git remote set-url origin "https://<PAT>@github.com/scirda1-oss/rustcasino.git"
+    git fetch origin main -q && git rebase origin/main   # sync first
+    git push origin main                                 # retries w/ backoff on network err
+    git remote set-url origin "http://local_proxy@127.0.0.1:41729/git/scirda1-oss/rustcasino"
+    ```
+    **Write access requires the `Claude` GitHub App to be INSTALLED on the repo**
+    (github.com/apps/claude → Installed GitHub Apps). If pushes start returning
+    `403 … denied to scirda1-oss`, the app install/authorization lapsed — reinstall/
+    re-authorize it; the OAuth-only "Authorized" grant is read-only and not enough.
+    The daily agent uses exactly this flow. (History: writes worked Aug 3–4, lapsed
+    Aug 5–6, restored Aug 6 by installing the GitHub App.)
 
 **Static / trust**
 - `/about` · `/contact` · `/privacy` · `/responsible-gambling`
