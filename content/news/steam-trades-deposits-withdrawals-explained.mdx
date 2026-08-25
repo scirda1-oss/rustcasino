@@ -1,0 +1,54 @@
+---
+slug: steam-trades-deposits-withdrawals-explained
+title: "How Rust Deposits and Withdrawals Actually Work: Steam Trades Explained"
+description: "Every deposit and cash-out on a Rust site runs on Steam trade offers. Here's the plumbing — trade URLs, the mobile authenticator, and why a held trade usually isn't a scam."
+category: "Deposits"
+author: "Rust.Casino Team"
+published: "2026-08-25"
+updated: "2026-08-25"
+related:
+  - cash-out-rust-winnings-real-money
+sources:
+  - "Trend signal: player confusion over trade holds, trade URLs and the mobile authenticator."
+---
+
+Behind every skin deposit and withdrawal on a Rust site is a plain **Steam trade offer** between you and the site's bot accounts. Most confusion — and a lot of needless panic about "held" trades — comes from not understanding this plumbing. Here's how it actually works.
+
+## What you need set up first
+
+Two things make skin trading work smoothly:
+
+- **The Steam Guard mobile authenticator.** This is the big one. If you *don't* have it — or you enabled it **less than 7 days ago** — Steam applies a **trade hold** (historically up to around 15 days) on your trades. That's a Steam security rule, not the site messing with you. Enable the mobile authenticator well before you plan to trade, and wait out the initial period.
+- **Your Steam trade URL.** This is the link that lets a site's bot send you a trade offer. You paste it into the site's deposit/withdrawal settings. Note Steam only lets you change it periodically, so set it once and keep it.
+
+## Depositing
+
+You pick the skins to deposit, a trade offer is created between you and the site's **official bot account**, and you accept and **confirm it in the Steam mobile app**. Because Rust skins don't carry the item-level trade lock some other games' items do, an accepted trade settles quickly — and the site credits your balance at **its conversion rate** (which, as always, is usually a bit below Steam market value).
+
+## Withdrawing
+
+The reverse: you choose skins to withdraw, the bot sends *you* a trade offer, and you accept and confirm it in the app. With the authenticator active and the wait period passed, it's typically near-instant.
+
+## When a trade is "held" — and it's not a scam
+
+A held or blocked trade usually means one of these, all on the Steam side:
+
+- **No mobile authenticator, or enabled too recently** (under 7 days).
+- **A recent password change or new device**, which temporarily restricts trading.
+- **A wrong or outdated trade URL.**
+
+These clear on their own — the fix is patience, not panic. Assuming the site scammed you the moment a trade holds is a common mistake; check your own Steam account state first.
+
+## The safety overlay — this part *does* matter
+
+The mechanics above are safe; the danger is impersonation. So:
+
+- **Only accept trade offers from the site's official bot**, and only for a trade you initiated. Verify the bot account and the exact site domain.
+- **Never "log in to verify" through a link someone sends you** — that's the [Steam API-key phishing scam](/steam-api-key-phishing-rust-gambling), and it's how inventories get drained.
+- **Never share your Steam Web API key.** A legitimate deposit or withdrawal never requires it.
+
+## Bottom line
+
+Deposits and withdrawals are just Steam trade offers with the mobile authenticator doing the security work. Set up the authenticator early, save your trade URL, and confirm trades in the app. If one holds, it's almost always your account's trade-eligibility, not the site — but stay sharp about *who* you're trading with, because that's where the real risk lives. Once your balance is out as skins, our [cash-out guide](/cash-out-rust-winnings-real-money) covers turning it into money.
+
+*18+ only. Gambling can be addictive — if it stops being fun, stop. See our [responsible gambling](/responsible-gambling) page for support resources.*
