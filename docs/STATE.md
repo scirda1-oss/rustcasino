@@ -198,6 +198,38 @@ on-page (not needed). See `docs/affiliates.md` for detail.
 
 ---
 
+## SEO DIAGNOSIS — 2026-09-11 (read before any SEO work)
+
+Site was "dead" (0 clicks, new pages not indexing). Ahrefs data settled the cause:
+
+- **Domain trust is the problem, not on-page/tech.** DR **0**, org keywords **0**,
+  org traffic **0**. Yet **373 referring domains** — **all spam / link-selling
+  farms** (Ahrefs `is_spam=true`, 0 dofollow). Only 1 dofollow on the whole domain,
+  from a DR-0 site. Spam links date back to **2023–2024, before our Jul-2026
+  launch** → the domain had a prior spammy life ("burned" domain).
+- **Technical is clean** (verified in build): canonicals, `robots: index,follow`,
+  sitemap (all URLs), robots.txt. Do NOT spend more effort here.
+- **Scaled AI content made it worse**: 41 daily AI news vs 5 reviews + 3 guides on
+  a DR-0 YMYL domain = "scaled content" profile Google refuses to index.
+
+Actions taken 2026-09-11:
+- News agent cut to **weekly** (cron `0 15 * * 1`), prompt shifted to
+  quality/refresh-first.
+- `newsSchema.noindex` added; **17 weak/overlapping news articles set
+  `noindex: true`** (kept readable, excluded from index + sitemap). 24 remain
+  indexable.
+- `docs/disavow-rust-casino.txt` generated (all spam refdomains) — **user must
+  upload in GSC Disavow tool.**
+- Byline changed from invented persona "Marcus Feld" → honest
+  **"Rust.Casino Editorial Team"** (Organization schema). Replace with a real,
+  verifiable person when available.
+- Homepage now links the top 4 indexable news pieces ("Latest analysis").
+- `docs/backlink-outreach.md` — templates + tracker for real links.
+
+Open decisions (user): check **GSC → Manual actions**; if penalised or no
+recovery in ~6–8 weeks after disavow + real links, **move to a clean domain**
+(do not 301 from a penalised domain).
+
 ## Next priorities
 
 1. ~~**`rust-skin-gambling` hub**~~ — ✅ shipped (`/rust-skin-gambling`,

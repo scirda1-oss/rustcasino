@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getBlogPosts().map((p) => ({
     url: `${SITE.domain}/blog/${p.slug}`, lastModified: new Date(p.updated),
   }));
-  const news = getNews().map((n) => ({
+  const news = getNews().filter((n) => !n.noindex).map((n) => ({
     url: `${SITE.domain}/news/${n.slug}`, lastModified: new Date(n.updated),
   }));
   const modes = getModes().map((m) => ({ url: `${SITE.domain}/${m.slug}`, lastModified: now }));

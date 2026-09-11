@@ -69,6 +69,9 @@ export const newsSchema = z.object({
   published: z.string(),
   related: z.array(z.string()).default([]),
   sources: z.array(z.string()).default([]),
+  // SEO: weak/overlapping pieces stay readable but are kept out of the index
+  // and sitemap (scaled-content risk on a low-authority YMYL domain).
+  noindex: z.boolean().default(false),
 });
 
 export type Review = z.output<typeof reviewSchema> & { body: string };

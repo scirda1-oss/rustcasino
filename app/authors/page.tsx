@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 const profileLd = {
   "@context": "https://schema.org",
-  "@type": "ProfilePage",
+  "@type": "AboutPage",
   mainEntity: { "@context": "https://schema.org", ...authorLd() },
 };
 
@@ -29,8 +29,8 @@ export default function Authors() {
         <p className="stencil text-sm text-olive">EDITORIAL TEAM</p>
         <h1 className="stencil mt-2 text-4xl text-bone md:text-5xl">Who writes Rust.Casino</h1>
         <p className="mt-4 text-ash leading-relaxed">
-          Every review and guide on this site is tested and edited by a person, not generated from an
-          affiliate feed. Here is who is behind the ratings and how we work.
+          Every review on this site is tested by our editorial team, not generated from an affiliate
+          feed. Here is how we work and how the ratings are set.
         </p>
       </header>
 
@@ -39,10 +39,10 @@ export default function Authors() {
         <p className="stencil mt-1 text-sm text-olive">{AUTHOR.role}</p>
         <p className="mt-4 text-ash leading-relaxed">{AUTHOR.bio}</p>
         <p className="mt-3 text-ash leading-relaxed">
-          Marcus handles the hands-on side of every review: opening accounts, depositing real skins,
-          playing across a site's game modes, and then withdrawing to see how payouts actually behave.
-          Provably fair results are checked against each site's own verifier, and community reports of
-          withheld payouts are tracked over time and factored into ratings.
+          For every review the team opens an account, deposits real skins, plays across the site&apos;s
+          game modes, and withdraws to see how payouts actually behave. Provably fair results are
+          checked against each site&apos;s own verifier, and community reports of withheld payouts are
+          tracked over time and factored into the rating.
         </p>
       </section>
 

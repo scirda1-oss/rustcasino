@@ -1,11 +1,12 @@
 import Link from "next/link";
-import { getReviews, getBlogPosts } from "@/lib/content";
+import { getReviews, getBlogPosts, getNews } from "@/lib/content";
 import { OperatorCard } from "@/components/OperatorCard";
 import { SITE } from "@/lib/site";
 
 export default function Home() {
   const reviews = getReviews();
   const posts = getBlogPosts().slice(0, 3);
+  const news = getNews().filter((n) => !n.noindex).slice(0, 4);
   const top = reviews.slice(0, 5);
 
   return (
@@ -47,6 +48,23 @@ export default function Home() {
               </Link>
             ))}
           </div>
+        </section>
+      )}
+
+      {news.length > 0 && (
+        <section>
+          <h2 className="stencil text-2xl text-bone">Latest analysis</h2>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {news.map((n) => (
+              <Link key={n.slug} href={`/news/${n.slug}`}
+                className="rounded-sm border border-line bg-panel p-4 hover:border-rust transition-colors">
+                <span className="stencil text-[10px] tracking-widest text-olive">{n.category}</span>
+                <h3 className="stencil mt-1 text-bone">{n.title}</h3>
+                <p className="mt-2 text-sm text-ash line-clamp-2">{n.description}</p>
+              </Link>
+            ))}
+          </div>
+          <Link href="/news" className="mt-4 inline-block text-sm text-rust hover:text-rust2">All news & analysis →</Link>
         </section>
       )}
     </div>

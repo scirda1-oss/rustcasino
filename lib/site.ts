@@ -10,11 +10,12 @@ export function absUrl(pathname: string) {
   return `${SITE.domain}${pathname.startsWith("/") ? pathname : `/${pathname}`}`;
 }
 
-// Site editor identity (E-E-A-T byline). Single editorial persona used across
-// reviews and guides. NOTE: replace with a real team member's details when available.
+// Byline identity (E-E-A-T). An honest team byline — NOT an invented named
+// persona, which is a trust risk on a YMYL/gambling site. Swap in a real,
+// verifiable person (name + bio + photo) when one is available.
 export const AUTHOR = {
-  name: "Marcus Feld",
-  role: "Editor & Lead Tester",
+  name: "Rust.Casino Editorial Team",
+  role: "Editors & testers",
   path: "/authors",
-  bio: "Marcus leads testing at Rust.Casino — making real deposits, timing withdrawals and verifying provably fair results before any site earns a rating.",
+  bio: "The Rust.Casino editorial team tests sites hands-on — depositing, playing, withdrawing and verifying provably fair results — and rates them on what actually happens, not on what operators advertise.",
 };

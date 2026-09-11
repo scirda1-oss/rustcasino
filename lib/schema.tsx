@@ -1,14 +1,16 @@
 import { SITE, absUrl, AUTHOR } from "./site";
 import type { Review, Promo, BlogPost, NewsItem } from "./content";
 
-// Person schema for the site editor (E-E-A-T author signal).
+// Author schema (E-E-A-T). The byline is an editorial team, so it is an
+// Organization, not a fabricated Person. Switch to Person when a real,
+// verifiable author exists.
 export function authorLd() {
   return {
-    "@type": "Person",
+    "@type": "Organization",
     name: AUTHOR.name,
-    jobTitle: AUTHOR.role,
     url: absUrl(AUTHOR.path),
-    worksFor: { "@type": "Organization", name: SITE.name, url: SITE.domain },
+    description: AUTHOR.bio,
+    parentOrganization: { "@type": "Organization", name: SITE.name, url: SITE.domain },
   };
 }
 
