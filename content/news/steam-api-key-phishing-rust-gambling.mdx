@@ -1,44 +1,77 @@
 ---
 slug: steam-api-key-phishing-rust-gambling
 title: "The Steam API-Key Scam That Empties Rust Inventories"
-description: "The biggest threat to your skins usually isn't the odds — it's a fake login page. Here's how the Steam Web API-key phishing scam works, and the few habits that shut it down."
+description: "The biggest threat to your skins usually isn't the odds — it's a fake login page. How the Steam Web API-key scam actually works, the one tell you can spot before confirming a trade, and the exact recovery steps if you've already been hit."
 category: "Safety"
 author: "Rust.Casino Team"
 published: "2026-08-08"
-updated: "2026-08-08"
+updated: "2026-09-14"
 related:
+  - steam-trades-deposits-withdrawals-explained
+  - vetting-new-rust-gambling-site-checklist
   - responsible-gambling-tools-rust-sites
 sources:
-  - "Trend signal: recurring Steam-community reports of API-key and fake-login phishing targeting skin holders."
+  - "Trend signal: recurring Steam-community reports and community-written guides on API-key / trade-redirect phishing targeting skin holders."
+  - "Steam account-security pages: store.steampowered.com/account, store.steampowered.com/twofactor/manage, steamcommunity.com/dev/apikey."
+noindex: false
 ---
 
-Ask people who've lost a Rust inventory how it happened, and it's rarely the coinflip. It's a **fake login page**. Skin phishing is the quiet, expensive threat around Rust gambling, and it works the same way over and over — so once you know the shape of it, it's genuinely easy to avoid.
+Ask people who've lost a Rust inventory how it happened, and it's rarely the coinflip. It's a **fake login page**. Skin phishing is the quiet, expensive threat around Rust gambling, and it works the same way over and over — so once you know the shape of it, it's genuinely easy to avoid. This piece covers the full mechanism, the one tell that gives it away *before* you confirm a trade, and what to do in the first ten minutes if you've already been hit.
 
-## How the scam works
+## How the scam works, step by step
 
 It almost always starts with an **unsolicited message**: someone adds you on Steam or Discord and asks you to "vote for their team," "rate my skin," "claim a season reward," or "verify to withdraw." There's a link. The link leads to a page that looks like a real Steam login — or a real gambling/trading site — but isn't.
 
-From there it goes one of two ways:
+What happens next is the part most people never see:
 
-- **Credential theft:** you type your Steam login into the fake page and hand it straight to the scammer.
-- **Steam Web API-key theft:** the fake site walks you through "logging in" in a way that exposes your **Steam Web API key**. With that key, a scammer can watch your trades and quietly **cancel and redirect** them — so a trade you think is going to a friend or a withdrawal actually lands in their inventory.
+- **You "log in" on the fake page.** That hands the scammer your Steam credentials and/or an active login session.
+- **They register a Steam Web API key on your account** (or grab the one you already have). The key lets their bot watch your account's trade activity in real time.
+- **They wait.** Nothing visible happens. Days or weeks can pass. Your account works normally.
+- **You send a real trade** — a deposit to a gambling site, a withdrawal, a trade with a friend.
+- **Their bot cancels that trade instantly and re-sends an identical-looking one** from an account cloned to match the recipient's **name and avatar**, with the same items.
+- **You confirm it in the Steam Guard mobile app**, because it looks exactly like the trade you just created. The skins go to the scammer.
 
-The API-key version is nastier because everything looks normal on your end until your skins simply don't arrive.
+That last step is the whole trick: the mobile authenticator doesn't protect you here, because *you* approve the redirected trade yourself. Everything looks normal until the site or your friend says the items never arrived. (For the honest version of how deposits and withdrawals move through Steam, see our [Steam trades guide](/news/steam-trades-deposits-withdrawals-explained).)
 
-## The red flags — all easy to spot
+## The one tell you can spot before it's too late
+
+Because the bot has to cancel your real offer and replace it, it leaves a fingerprint:
+
+- **Two trades where you made one.** Open your trade-offer history before confirming. If you see a **cancelled** offer sitting right next to a new **active** one you didn't consciously create, stop — that's the redirect happening in front of you.
+- **The recipient in the mobile confirmation isn't a friend.** Steam's confirmation screen shows the other party's profile. If you added the real recipient as a friend first, the genuine offer shows the friend relationship; the cloned account won't. Gambling-site trade bots are a partial exception (you don't usually friend them), so for those check the bot's profile link against the one shown on the site's own deposit page.
+- **A profile that's brand new or empty.** Cloned accounts copy the name and picture, not the history. A recent registration date, no games, no level, no comments — on an account that's supposedly a site you've used for months — is the tell.
+
+Make it a habit: **never confirm a trade reflexively**. Read the confirmation, then confirm.
+
+## The red flags upstream — all easy to spot
 
 - **"Log in / verify on this other link."** A legitimate site you already use doesn't need you to authenticate somewhere else. Treat it as hostile.
+- **A login prompt when you're already signed in.** Sign into `steamcommunity.com` directly first. Once you are, real "Sign in through Steam" buttons on other sites don't ask for your password again — if one does, it's a fake page.
 - **Unsolicited DMs with links.** No real giveaway, reward, or promo is handed out through a random direct message. Assume every one is a scam.
 - **Urgency.** "Urgent," "limited time," "act now" is pressure designed to stop you thinking.
-- **Anyone asking for your inventory or API key.** Real support never needs you to transfer skins or share a key to "fix a bug."
+- **Anyone asking for your inventory, your API key, or your password.** Real support never needs you to transfer skins or share a key to "fix a bug." Steam Support does not contact you through Steam chat or Discord.
 
-## How to shut it down
+## How to shut it down (prevention)
 
-- **Only ever log in on the real Steam domains** — check the address bar reads `steamcommunity.com` or `store.steampowered.com`, exactly. Bookmark the gambling sites you use and open them from the bookmark, never from a message.
-- **Check your Steam Web API key** at `steamcommunity.com/dev/apikey`. If there's a key registered that you didn't create, **revoke it** — that's a red alert.
-- **Turn on the Steam Guard mobile authenticator.** It blocks most account takeovers even if a password leaks.
-- **Stick to sites you've actually vetted.** Our [legit checks](/legit) and [reviews](/best-rust-gambling-sites) exist so you're typing a known URL, not chasing one from a stranger's DM.
+- **Only ever log in on the real Steam domains** — check the address bar reads `steamcommunity.com` or `store.steampowered.com`, exactly. Bookmark the gambling sites you use and open them from the bookmark, never from a message. Our [legit checks](/legit) and [reviews](/best-rust-gambling-sites) exist so you're typing a known URL, not chasing one from a stranger's DM.
+- **Check your Steam Web API key** at `steamcommunity.com/dev/apikey`. If there's a key registered that you didn't create, **revoke it** — that's a red alert, and it means you should do the full recovery below, not just revoke.
+- **Keep the Steam Guard mobile authenticator on.** It blocks most account takeovers even if a password leaks, and accounts without it face long trade holds anyway. Just remember it does *not* protect against a trade you confirm yourself — that's what the checks above are for.
+- **Vet the site before the first deposit.** A fake site is the delivery mechanism for most of these attacks; our [new-site checklist](/news/vetting-new-rust-gambling-site-checklist) is the five-minute version.
 
-None of this requires being technical. It's four habits: bookmark real sites, never log in through a link someone sent you, keep your API key clean, and keep Steam Guard on. Do those and the most common way people lose a Rust inventory just stops being available to the scammers.
+## If you've already been hit: the first ten minutes
+
+Do these **in this order**. Doing only the last one (revoking the key) is the most common mistake — the scammer still has your session and just registers a new key.
+
+1. **Change your Steam password** at `store.steampowered.com/account` → Account Security.
+2. **Deauthorize all other devices** at `store.steampowered.com/twofactor/manage`. This kills every stolen login session. You'll have to sign in again everywhere — sign into `steamcommunity.com` first, then your usual sites.
+3. **Revoke the API key** at `steamcommunity.com/dev/apikey`. Now that the session is dead, a new one can't be registered behind your back.
+4. **Generate new backup codes** (same two-factor page) and **run a malware scan** — if the login page was paired with a downloaded "viewer" or "launcher", the machine itself may be compromised.
+5. **Check your pending trades and cancel anything you don't recognise**, then go through the trade history for the cancelled/re-sent pairs described above so you know exactly what was taken.
+
+Report the scammer's account through Steam so it gets flagged. Be realistic about recovery: Steam's stated position is that items traded away through a trade you confirmed are generally not restored, so the prevention habits above are the actual defence.
+
+## The short version
+
+Four habits, none of them technical: bookmark real sites, never log in through a link someone sent you, keep your API key page empty unless you put something there, and **read every trade confirmation before you tap accept**. Do those and the most common way people lose a Rust inventory simply stops being available to the scammers.
 
 *18+ only. Gambling can be addictive — if it stops being fun, stop. See our [responsible gambling](/responsible-gambling) page for support resources.*
