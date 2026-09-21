@@ -1,41 +1,69 @@
 ---
 slug: is-rust-skin-gambling-against-steam-rules
 title: "Is Rust Skin Gambling Against Steam's Rules? The Account-Risk Reality"
-description: "Rust gambling sites run on Steam's item economy — but they aren't run or endorsed by Valve or Facepunch. Here's what that unofficial status means for your account, and why it's a reason for caution."
+description: "Rust gambling sites run on Steam's item economy but aren't run or endorsed by Valve or Facepunch. What Valve has actually done about skin gambling, which bans exist and who they hit, and what that means for your account."
 category: "Safety"
 author: "Rust.Casino Team"
 published: "2026-08-11"
-updated: "2026-08-11"
+updated: "2026-09-21"
 related:
   - steam-api-key-phishing-rust-gambling
+  - steam-trades-deposits-withdrawals-explained
+  - when-a-rust-gambling-site-shuts-down
 sources:
   - "Trend signal: player questions about whether skin gambling sites are official and whether accounts are at risk."
+  - "Public record: Valve's July 2016 cease-and-desist letters to CS:GO skin-betting sites (Steam Subscriber Agreement); Washington State Gambling Commission order to Valve, October 2016; Valve's June 2018 shutdown of OPSkins ExpressTrade bots."
+noindex: false
 ---
 
-A question that comes up constantly: are Rust skin gambling sites "official," and can using them get your Steam account in trouble? It's worth answering plainly, because a lot of players assume these sites are part of the ecosystem in a way they simply aren't.
+A question that comes up constantly: are Rust skin gambling sites "official," and can using them get your Steam account in trouble? It's worth answering plainly, because a lot of players assume these sites are part of the ecosystem in a way they simply aren't — and the honest answer has two halves: what the rules say, and what Valve has actually done.
 
 ## These sites are third-party — full stop
 
 Rust skin gambling sites are **not** run, endorsed, or operated by **Facepunch** (Rust's developer) or **Valve** (which runs Steam). They're independent businesses built *on top of* the Steam item economy — they use Steam trading to move skins in and out, but they aren't authorized partners of it. When a site displays Rust skins, that's the third party plugging into Steam's trading system, not Steam blessing the site.
 
-That distinction matters the moment something goes wrong: because these operators aren't affiliated with Valve or Facepunch, **there's no official backstop.** Steam support won't reverse a gambling loss or recover skins you sent to a third-party site.
+That distinction matters the moment something goes wrong: because these operators aren't affiliated with Valve or Facepunch, **there's no official backstop.** Steam Support won't reverse a gambling loss or recover skins you sent to a third-party site.
 
-## What Steam's rules actually restrict
+## What Steam's rules actually say
 
-Steam's Subscriber Agreement and API terms restrict using your account, your items, and the **Steam Web API** to run or facilitate third-party gambling. Valve has long taken the position that it does **not** authorize skin-gambling sites, and it has acted against them and against accounts tied to that activity over the years. Scrutiny of skin gambling — from Valve and from regulators generally — has only increased, not eased.
+The **Steam Subscriber Agreement** — the terms every Steam account accepts — is the document that matters. Two parts of it are relevant to skin gambling:
 
-The practical upshot: engaging with these sites sits in a **grey area** that runs against the spirit, and often the letter, of Steam's rules. That doesn't mean casual use guarantees a ban, but it does mean you're operating outside anything Valve supports or protects.
+- **Items have no real-world value in Valve's eyes.** The agreement treats in-game items as licensed content, not property you own, and restricts selling or transferring them outside Steam except through services Valve permits. Skins obviously *do* trade for real money — but that's a market Valve tolerates, not one it guarantees.
+- **Commercial use of Steam accounts is not allowed.** Running a business through Steam accounts — which is exactly what a gambling site's deposit-and-withdrawal bots do — is the specific clause Valve has cited when it has acted against sites.
+
+Note who those rules target: the **operator** running bot accounts commercially, far more than the individual player trading with them. That's consistent with how enforcement has actually played out.
+
+## What Valve has actually done — the public record
+
+Valve's stance isn't hypothetical. The clearest actions are from the CS:GO skin-betting era, and they set the pattern that still applies to Rust sites today:
+
+- **July 2016:** Valve sent cease-and-desist letters to **23 CS:GO skin-betting sites**, stating they were using Steam accounts for commercial purposes in violation of the Subscriber Agreement and giving them ten days to stop before Valve would terminate the accounts involved. Several sites, including CS:GO Lounge, shut down their gambling operations in response.
+- **October 2016:** the **Washington State Gambling Commission** ordered Valve to stop facilitating skin gambling through Steam, adding regulatory pressure on top of Valve's own enforcement.
+- **June 2018:** Valve shut down the Steam trading bots behind OPSkins' ExpressTrade service, noting the feature was being used by other businesses to get around Valve's policies. Items sitting in those bots — reported at around **$2 million** in CS:GO skins — were locked with them.
+
+The through-line: Valve acts against **bots and operators**, and when it does, **items held by those bots are lost**. Roughly half of the CS:GO sites of that era closed, and the rest moved to structures that keep less inventory on Steam accounts (crypto balances, off-Steam wallets). That history is why we cover [what happens when a site shuts down](/news/when-a-rust-gambling-site-shuts-down) and why "how much do I leave on the site?" is a real question, not paranoia.
+
+## The bans that exist, and who they hit
+
+Players tend to lump every Steam sanction together. They're different things:
+
+- **VAC ban** — anti-cheat only. Triggered by cheat software in a VAC-secured game. It has nothing to do with gambling or trading, and a "you'll be VAC-banned for gambling" message is a scam script, not a Valve policy.
+- **Trade ban** — blocks trading and the Community Market. This is the sanction that actually intersects with skin gambling. Permanent trade bans go to accounts caught scamming or in commercial abuse (i.e. operator bots). Ordinary players do get **temporary trade restrictions** — after a password reset, a new Steam Guard device, or flagged activity — and those clear on their own.
+- **Community ban** — restricts community features (profile, comments, groups), typically for conduct; again unrelated to gambling.
+
+Has a regular player ever been trade-banned over a gambling site? Community reports exist, mostly tied to handing a site **Steam Web API-key** access, and in some of those cases the bans were reversed on appeal. But the plain reality is that enforcement has overwhelmingly targeted operators, not players. The bigger risk to *your* account isn't a Valve ban at all — it's the [API-key phishing scam](/news/steam-api-key-phishing-rust-gambling) that uses gambling sites as its lure.
 
 ## What this means for you
 
 You don't need to panic, but you should be clear-eyed:
 
 - **There's no safety net.** No affiliation means no official recourse — Steam won't help if a site withholds a withdrawal or an item vanishes.
-- **Your account is the asset to protect.** Guard your login and especially your **Steam Web API key**, which is the exact thing skin-phishing scams target — see [the API-key scam](/steam-api-key-phishing-rust-gambling).
+- **Skins on a site's bot are at the site's mercy — and Valve's.** If either the operator or Valve pulls the plug on those bot accounts, that inventory is gone. Withdraw what you're not actively playing with. (How deposits and withdrawals actually move through Steam is covered in our [Steam trades guide](/news/steam-trades-deposits-withdrawals-explained).)
+- **Your account is the asset to protect.** Guard your login and especially your **Steam Web API key**. Never grant a site API access it "needs to verify you" — that's the exact hook the phishing scam uses.
 - **"Unregulated" cuts both ways.** These sites aren't overseen by a gambling regulator either, so player protections you'd expect from a licensed casino largely don't exist.
 
 ## The takeaway
 
-Treat Rust skin gambling for what it is: **unofficial, unaffiliated, and unregulated** third-party activity built on Steam's economy, not a sanctioned part of it. That's not a reason to moralise — it's a reason to protect your account, keep your API key clean, and stick to sites you've actually vetted, like the ones we put through [legit checks](/legit). If you understand there's no official backstop, you'll make calmer decisions about what you're willing to risk.
+Treat Rust skin gambling for what it is: **unofficial, unaffiliated, and unregulated** third-party activity built on Steam's economy, not a sanctioned part of it. Valve has demonstrated — with letters, bot shutdowns and locked inventories — that it will act against operators when it chooses to, and players who leave skins sitting on those operators' bots absorb the fallout. That's not a reason to moralise; it's a reason to keep balances small, keep your API key clean, and stick to sites you've actually vetted, like the ones we put through [legit checks](/legit). If you understand there's no official backstop, you'll make calmer decisions about what you're willing to risk.
 
 *18+ only. Gambling can be addictive — if it stops being fun, stop. See our [responsible gambling](/responsible-gambling) page for support resources.*
