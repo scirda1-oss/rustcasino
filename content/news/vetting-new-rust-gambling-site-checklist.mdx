@@ -1,40 +1,76 @@
 ---
 slug: vetting-new-rust-gambling-site-checklist
 title: "New Rust Gambling Site? Vet It With This Checklist First"
-description: "New Rust sites (and clones) launch constantly, and a slick homepage proves nothing. Here's a practical checklist to vet an unknown site before you deposit — and the one test that matters most."
+description: "New Rust sites (and clones) launch constantly, and a slick homepage proves nothing. A practical pre-deposit checklist — domain age via ICANN lookup, licence-seal verification, trade-bot profile checks, provably-fair reproduction, terms, support — and the one test that beats all of them."
 category: "Guides"
 author: "Rust.Casino Team"
 published: "2026-08-21"
-updated: "2026-08-21"
+updated: "2026-10-19"
 related:
   - fake-provably-fair-red-flags
+  - steam-api-key-phishing-rust-gambling
+  - rust-gambling-withdrawal-stuck-what-to-do
 sources:
-  - "Trend signal: constant launches of new/unknown Rust gambling sites and clones."
+  - "Trend signal: constant launches of new/unknown Rust gambling sites and clones; player questions about how to check a site before depositing."
+  - "Public record: ICANN Lookup (lookup.icann.org, RDAP) for domain registration data; regulator-hosted licence validators and the Curaçao licensing transition (legacy sub-licences expired January 2025); Steam profile indicators for trade bans and account history."
+noindex: false
 ---
 
-The Rust gambling space never sits still — new sites, rebrands, and outright clones appear constantly. A polished homepage and a flashy welcome bonus tell you nothing about whether a site will actually pay you. Before you deposit on one you've never heard of, run it through this checklist. It won't guarantee safety — nothing does on an unregulated site — but it filters out most of the bad ones.
+The Rust gambling space never sits still — new sites, rebrands, and outright clones appear constantly. A polished homepage and a flashy welcome bonus tell you nothing about whether a site will actually pay you. Before you deposit on one you've never heard of, run it through this checklist. It won't guarantee safety — nothing does on an unregulated site — but it filters out most of the bad ones, and most of it takes under fifteen minutes.
 
-## The checklist
+## 1. Check the domain itself (two minutes)
 
-- **Verify the provably fair yourself.** Don't trust the badge — check a result. A real system publishes a hashed server seed before the round, reveals the seed after, lets you set a client seed, and gives you a verifier. If you can't reproduce a result, stop. (See [fake provably-fair red flags](/fake-provably-fair-red-flags).)
-- **Read the published terms.** Fees, withdrawal methods, KYC thresholds, and [bonus wagering](/rust-gambling-bonus-wagering-requirements) should all be findable and clear. Vague, buried, or contradictory terms are a red flag.
-- **Check independent reputation.** Look at recent community feedback — the site's Discord, its subreddit, review platforms — reading the *newest* comments, not just an overall score. A brand-new site with no track record isn't automatically bad, but it's unproven, so treat it that way.
-- **Look for responsible-gambling tools.** Even a basic [self-ban or cool-off](/responsible-gambling-tools-rust-sites) signals a more serious operator; a total absence signals the opposite.
-- **Test support before depositing.** Send a question. Responsive, coherent support is a good sign; silence or canned nonsense is not.
-- **Confirm ownership isn't a black box.** Vague or hidden operator information is a common thread in sites that later vanish with balances.
+- **Look up the registration date.** Go to ICANN's free lookup (`lookup.icann.org`), paste the domain, and read the **creation date**. A site claiming "trusted since 2021" on a domain registered six weeks ago is lying about something. One caveat: a dropped and re-registered domain also shows a fresh date, so a *young* date is a warning sign, but an *old* date proves nothing on its own.
+- **Verify the exact spelling.** Clones live on lookalike domains — an extra letter, a swapped TLD, a hyphen. Type the address yourself or use a bookmark; never arrive via a link someone sent you. Our [legit checks](/legit) list the real domains for the sites we cover.
+- **Check its history.** Paste the domain into the Wayback Machine. A site that was something else entirely last year, or that has hopped domains repeatedly, deserves extra suspicion — domain-hopping is a classic move for operators shedding a bad reputation.
 
-## The one test that beats all the others
+## 2. Verify any licence claim — don't just read it
+
+Most Rust skin sites are **unlicensed**; some claim a licence, usually Curaçao. A claim is only worth something if you can verify it:
+
+- **Click the seal in the footer.** It should open a validator page on the **regulator's own domain**, not an image or a page on the casino's domain. If the seal doesn't click through, treat it as decoration.
+- **Match the legal entity.** The company name on the validator must match the company named in the site's own terms. A mismatch is a red flag, not a typo.
+- **Be wary of legacy numbers.** Curaçao's old sub-licence regime ended in January 2025; sites still waving those numbers around either haven't updated or never held anything verifiable.
+- **Never verify through a link or QR code the site gave you.** Type the regulator's address yourself — fake validator pages exist precisely because people click the seal and stop there.
+
+And keep perspective: even a genuine licence from a light-touch jurisdiction mostly tells you a company exists. It is not a guarantee of payouts.
+
+## 3. Inspect the trade bots before you send anything
+
+Every skin deposit goes to a Steam account the site controls. Those accounts are public, and they tell you a lot:
+
+- **Open the bot's Steam profile** from the site's deposit page and compare it against the one that actually sends you the trade offer — if they differ, stop (that's the [API-key redirect scam](/news/steam-api-key-phishing-rust-gambling) in action).
+- **Read the profile.** Steam shows a **"Trade Banned"** label and any VAC/game bans right on the profile. A bot that's trade-banned can't pay you out. Very new accounts with no history or level, on a site that claims years of operation, don't add up.
+- **Check the trade offer carefully in the Steam Guard mobile app** before confirming — the counterparty's name, avatar and registration date. Our [Steam trades guide](/news/steam-trades-deposits-withdrawals-explained) covers exactly what a legitimate deposit looks like.
+
+## 4. Reproduce a provably fair result
+
+Don't trust the badge — check a result. A real system publishes a hashed server seed before the round, reveals the seed after, lets you set a client seed, and gives you a verifier. Take one finished round and reproduce it. If you can't, or the "verifier" is a page that just says "Verified ✓" with no inputs, stop. The specific tells are in [fake provably-fair red flags](/news/fake-provably-fair-red-flags), and the walkthrough is in our [verification guide](/blog/how-to-verify-provably-fair).
+
+## 5. Read the terms — specifically these lines
+
+Fees, withdrawal methods and limits, KYC triggers, and [bonus wagering](/news/rust-gambling-bonus-wagering-requirements) should all be findable and clear. Look specifically for:
+
+- **Maximum withdrawal per day/week** — the number that quietly turns a big win into a months-long drip.
+- **When KYC can be demanded** — "at our discretion" at withdrawal time is how [withdrawals get stuck](/news/rust-gambling-withdrawal-stuck-what-to-do).
+- **Dormancy and confiscation clauses** — balances forfeited after X days of inactivity.
+- **Whether terms exist at all.** No terms, or terms copied from another site with the wrong brand name still in them, tells you how the operation was built.
+
+## 6. Reputation, support, ownership
+
+- **Read the newest community feedback**, not the overall score — the site's Discord, Trustpilot-style platforms, relevant subreddits. Look for a pattern of unresolved withdrawal complaints; ignore both the 5-star fluff and the single furious loser. A brand-new site with no track record isn't automatically bad, but it's unproven, so treat it that way.
+- **Message support before depositing.** A specific question ("what's the withdrawal limit for skins?") gets either a coherent answer or canned nonsense. You learn a lot either way.
+- **Look for responsible-gambling tools.** Even a basic [self-ban or cool-off](/news/responsible-gambling-tools-rust-sites) signals a more serious operator; a total absence signals the opposite.
+- **Ownership shouldn't be a black box.** Vague or hidden operator information is a common thread in sites that later vanish with balances.
+
+## 7. The one test that beats all the others
 
 Here's the single most useful thing you can do with an unproven site: **start tiny and complete the full loop.** Deposit a small amount, play a little, and — the crucial step — **withdraw**. A site that pays a small withdrawal cleanly and promptly has passed the test that actually matters. One that stalls, adds surprise verification, or "loses" a $5 payout has told you everything you need to know **before** you risked anything real.
 
-Never scale up on a new site until it has paid you out at least once, smoothly.
-
-## Keep your account safe throughout
-
-None of this matters if your account gets phished. Only log in on the real Steam domains, verify the exact domain (clones use lookalike URLs), never authenticate through a link someone sent you, and guard your Steam Web API key.
+Never scale up on a new site until it has paid you out at least once, smoothly. And even then, keep balances small — if the site or its bots disappear, so does whatever is sitting on them.
 
 ## Bottom line
 
-No regulator is vetting these sites for you — that job [falls to you](/is-rust-skin-gambling-against-steam-rules). A new site can be perfectly fine, but it's unproven until it earns trust, so make it prove itself with a small, successful withdrawal before you commit anything meaningful. For the sites we've already put through this, see our [legit checks](/legit) and [reviews](/best-rust-gambling-sites) — that's the legwork done for you.
+No regulator is vetting these sites for you — that job [falls to you](/news/is-rust-skin-gambling-against-steam-rules). Domain, licence, bots, fairness, terms, reputation, then a small real withdrawal: a site that passes all seven is as safe as an unregulated site gets. A site that fails any one of them has earned a hard pass. For the sites we've already put through this, see our [legit checks](/legit) and [reviews](/best-rust-gambling-sites) — that's the legwork done for you.
 
 *18+ only. Gambling can be addictive — if it stops being fun, stop. See our [responsible gambling](/responsible-gambling) page for support resources.*
